@@ -21,6 +21,7 @@
     "@angular/router": "~9.1.0",
     "angular-chart.js": "^1.1.1",
     "bootstrap": "^4.6.0",
+    "chart.js": "^2.3.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.1",
     "rxjs": "~6.5.4",
