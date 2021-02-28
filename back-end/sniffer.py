@@ -8,10 +8,8 @@ def getPacketInfo(networkInterface=None):
     else:
         print("listening on %s" % networkInterface)
         capture = pyshark.LiveCapture(interface=networkInterface)
-        for packet in capture.sniff_continuously(packet_count=70):
-            
+        for packet in capture.sniff_continuously():
             try:
-
                 localtime = time.asctime(time.localtime(time.time()))  
                 protocol = packet.transport_layer
                 src_addr = packet.ip.src   
@@ -29,11 +27,10 @@ def getPacketInfo(networkInterface=None):
                     "portSource" : src_port,
                     "ipDestination": dst_addr,
                     "portDestination" : dst_port,
-                    "identification" : pkt_id,
+                    "identification" : int(str(pkt_id),16),
                     "packetLength": pkt_len,
                     "packetTimeToLive" : pkt_ttl
                 }
-
                 insertPacketInfo(pktInfo, commande = "ip_layer")
 
             except AttributeError as e:
