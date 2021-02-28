@@ -1,8 +1,6 @@
 import pyshark
 import time
-import json
-from pymongo import MongoClient
-
+from DBController  import *
 
 def getPacketInfo(networkInterface=None):
     if networkInterface is None:
@@ -11,6 +9,7 @@ def getPacketInfo(networkInterface=None):
         print("listening on %s" % networkInterface)
         capture = pyshark.LiveCapture(interface=networkInterface)
         for packet in capture.sniff_continuously(packet_count=70):
+            
             try:
 
                 localtime = time.asctime(time.localtime(time.time()))  
@@ -35,15 +34,8 @@ def getPacketInfo(networkInterface=None):
                     "packetTimeToLive" : pkt_ttl
                 }
 
-                sniffToDb(pktInfo)
+                insertPacketInfo(pktInfo, commande = "ip_layer")
 
             except AttributeError as e:
                 pass
-
-
-def sniffToDb(packetDict):
-    client = MongoClient('localhost', 27017)
-    db = client['NetworkTraffic']
-    pakcetDocument = db['packetIP']
-    pakcetDocument.insert_one(packetDict)
 getPacketInfo("wlp3s0")
