@@ -42,7 +42,7 @@
               <div class="row align-items-center no-gutters">
                 <div class="col mr-2">
                   <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Network</span></div>
-                  <div class="text-dark font-weight-bold h5 mb-0"><span>$40,000</span></div>
+                  <div class="text-dark font-weight-bold h5 mb-0"><span>{{networks.length}}</span></div>
                 </div>
                 <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
               </div>
@@ -55,7 +55,7 @@
               <div class="row align-items-center no-gutters">
                 <div class="col mr-2">
                   <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Host</span></div>
-                  <div class="text-dark font-weight-bold h5 mb-0"><span>$215,000</span></div>
+                  <div class="text-dark font-weight-bold h5 mb-0"><span>{{networks.length}}</span></div>
                 </div>
                 <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
               </div>
@@ -106,22 +106,23 @@
                 </div>
               </div>
               <div class="card-body">
-                  <table class="table table-responsive w-100 d-block d-md-table">
+                  <table *ngIf="networks" class="table table-responsive w-100 d-block d-md-table">
                     <thead>
                     <tr>
-                      <th>Column 1</th>
-                      <th>Column 2</th>
+                      <th>Network</th>
+                      <th>Description</th>
+                      <th>Hosts</th>
+                      <th>Added On</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                      <td>Cell 1</td>
-                      <td>Cell 2</td>
-                    </tr>
-                    <tr>
-                      <td>Cell 3</td>
-                      <td>Cell 4</td>
-                    </tr>
+                      <tr *ngFor="let tmpNetwork of networks">
+                        <td>{{tmpNetwork.adress}}</td>
+                        <td>{{tmpNetwork.description}}</td>
+                        <td>{{tmpNetwork.hosts}}</td>
+                        <td>{{tmpNetwork.addedOn}}</td>
+                      </tr>
+
                     </tbody>
                 </table>
               </div>
