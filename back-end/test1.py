@@ -1,11 +1,6 @@
 import psutil
-
-addrs = psutil.net_if_addrs()
-print(addrs.keys())
-
 from get_nic import getnic
 
-print(getnic.interfaces())
-
+addrs = psutil.net_if_addrs()
 interfaces = getnic.interfaces()
-print(getnic.ipaddr(addrs.keys()))
+print(getnic.ipaddr(addrs))

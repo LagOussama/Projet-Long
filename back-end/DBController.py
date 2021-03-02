@@ -15,3 +15,4 @@ def insertPacketInfo(packetDict, commande):
         coll.insert_one(packetDict)
     else:
         print(" invalid commande!")
+
