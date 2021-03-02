@@ -10,6 +10,8 @@ import { HostComponent } from './host/host.component';
 const routes:Routes = [
   {path:'index',component:IndexComponent},
   {path:'host',component:HostComponent},
+  {path:'', redirectTo:'/index',pathMatch:'full'}
+
 
 ];
 @NgModule({
