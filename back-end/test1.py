@@ -1,4 +1,5 @@
 import psutil
+<<<<<<< HEAD
 import socket
 import struct
 import ipcalc
@@ -16,6 +17,15 @@ from get_nic import getnic
 
 
 
+class network:
+	def __init__(self,cidr):
+		net , mask = cidr_to_netmask(cidr)
+		addr = ipcalc.IP(net, mask=mask)
+		network_with_cidr = str(addr.guess_network())
+		bare_network = network_with_cidr.split('/')[0]
+		self.network = bare_network
+		self.mask = mask
+		self.hosts = None
 
 
 print(getnic.interfaces())
