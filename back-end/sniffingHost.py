@@ -12,10 +12,11 @@ def Main():
     #dict shows complete info of all the host interfaces (state, @ip, @mac, ...)
     addrs = psutil.net_if_addrs()
     interfInfo  = getnic.ipaddr(addrs)
-    
+
     for key in list(interfInfo.keys()):
-        myThread = Thread(target=snifferThread, args=(key,))
-        myThread.start()
+        if(interfInfo[key]['state'] == 'UP'):
+            myThread = Thread(target=snifferThread, args=(key,))
+            myThread.start()
       
 if __name__ == "__main__":
   Main()
