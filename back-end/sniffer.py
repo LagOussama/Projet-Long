@@ -32,10 +32,6 @@ def getPacketInfo(networkInterface=None):
                     "packetTimeToLive" : pkt_ttl,
                     "interface" : networkInterface
                 }
-                print("hey")
-                print(packet)
                 insertPacketInfo(pktInfo, commande = "ip_layer")
             except AttributeError as e:
                 pass
-
-getPacketInfo(["wlp3s0" , "veth069f"])
