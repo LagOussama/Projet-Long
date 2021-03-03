@@ -16,7 +16,10 @@ def Main():
     for key in list(interfInfo.keys()):
         if(interfInfo[key]['state'] == 'UP'):
             myThread = Thread(target=snifferThread, args=(key,))
-            myThread.start()
+            try:
+                myThread.start()
+            except Exception as err: 
+                pass # or raise err
       
 if __name__ == "__main__":
   Main()
