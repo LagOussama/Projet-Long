@@ -16,3 +16,6 @@ def insertPacketInfo(packetDict, commande):
     else:
         print(" invalid commande!")
 
+def insertNetwork(netDic):
+    coll = db['Networks']
+    coll.insert_one(netDic)

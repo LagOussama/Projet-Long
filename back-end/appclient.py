@@ -7,16 +7,26 @@ import traceback
 
 import libclient
 import libserver
-sel = selectors.DefaultSelector()
+import psutil
+from get_nic import getnic
 
+sel = selectors.DefaultSelector()
 #define value
 def create_request(action, value):
     if action == "add":
+
+
+        addrs = psutil.net_if_addrs()
+        interfaces_state = dicgetnic.ipaddr(addrs.keys())
+        
+        
         ## getting the hostname by socket.gethostname() method
         hostname = socket.gethostname()
         ## getting the IP address using socket.gethostbyname() method
         ip_address = socket.gethostbyname(hostname)
         ## printing the hostname and ip_address
+
+
         value=dict(hostname=hostname, ip_address=ip_address)
     if action == "search" or "add":
         return dict(
