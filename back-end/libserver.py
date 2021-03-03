@@ -3,6 +3,8 @@ import selectors
 import json
 import io
 import struct
+import test1
+from DBController import *
 
 request_search = {
     "morpheus": "Follow the white rabbit. \U0001f430",
@@ -16,9 +18,12 @@ class Agent:
     def __init__(self, initdic):
         self.addr = initdic.get("ip_address")
         self.hostname = initdic.get("hostname")
+        self.interfaces = initdic.get("interfaces").keys() 
         self.packets = None
-    def _add_packet(packet):
+    def _add_packet(self,packet):
         self.packets.append(packet)
+    def _to_dic(self):
+        retrun Dict(hostname=self.hostname, ip_address=self.addr, interfaces=self.interfaces)
 
 def print_agent(value):
     s = ""
@@ -35,7 +40,16 @@ def search(value):
     return content
 def add(value):
     nagent = Agent(value)
-    Agents.append(nagent)
+    #Agents.append(nagent)
+    hostdic = nagent._to_dic(self)
+    insertHost(hostdic)
+    #Class Networks { Address , mask , Hosts }
+    #Class Hosts { @ip, Interfaces, ?Ports, Hostname}
+    #Interface{Hostname, HostInterfaceName, State, HardwareAdress, ipv4, ipv6}
+    for interf in value.get("interfaces"):
+        interf["Hostname"] = nagent.hostname
+        insertInterfaces(interf)
+    
     answer ="Agent is added"
     content = {"result": answer}
     return content
