@@ -24,3 +24,9 @@ def insertInterfaces(interDic):
     coll = db['Interfaces']
     coll.insert_one(interDic)
 
+def isNetworkExist(Network, mask):
+    coll = db['Networks']
+    res = coll.find({'network':Network, 'mask':mask})
+    if (len(list(res))>0):
+        return True
+    return False
