@@ -18,12 +18,12 @@ class Agent:
     def __init__(self, initdic):
         self.addr = initdic.get("ip_address")
         self.hostname = initdic.get("hostname")
-        self.interfaces = initdic.get("interfaces").keys() 
+        self.interfaces = list(initdic.get("interfaces").keys())
         self.packets = None
     def _add_packet(self,packet):
         self.packets.append(packet)
     def _to_dic(self):
-        retrun Dict(hostname=self.hostname, ip_address=self.addr, interfaces=self.interfaces)
+        return dict(hostname=self.hostname, ip_address=self.addr, interfaces=self.interfaces)
 
 def print_agent(value):
     s = ""
@@ -41,18 +41,28 @@ def search(value):
 def add(value):
     nagent = Agent(value)
     #Agents.append(nagent)
-    hostdic = nagent._to_dic(self)
+    hostdic = nagent._to_dic()
     insertHost(hostdic)
     #Class Networks { Address , mask , Hosts }
     #Class Hosts { @ip, Interfaces, ?Ports, Hostname}
     #Interface{Hostname, HostInterfaceName, State, HardwareAdress, ipv4, ipv6}
+    print(value.get("interfaces"))
     for interf in value.get("interfaces"):
-        interf["Hostname"] = nagent.hostname
-        insertInterfaces(interf)
-    
+        interfaces = value.get("interfaces")[interf]
+        interfaces["Hostname"] = nagent.hostname
+        interfaces["HostInterfaceName"] = interf
+        insertInterfaces(interfaces)
+        if 'inet4' in interfaces:
+            print(dir(interfaces['inet4']))
+            addresip = interfaces['inet4'] + ""
+            net = test1.network(addresip)
+            if not isNetworkExist(net.network, net.mask):
+                insertNetwork(net._to_dic())
+
     answer ="Agent is added"
     content = {"result": answer}
     return content
+
 def default_action(value):
     action = "00"
     content = {"result": f'Error: invalid action "{action}".'}

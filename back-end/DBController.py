@@ -20,6 +20,10 @@ def insertNetwork(netDic):
     coll = db['Networks']
     coll.insert_one(netDic)
 
+def insertHost(hostDic):
+    coll = db['Hosts']
+    coll.insert_one(hostDic)
+
 def insertInterfaces(interDic):
     coll = db['Interfaces']
     coll.insert_one(interDic)

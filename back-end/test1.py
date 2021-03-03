@@ -24,6 +24,8 @@ class network:
 		self.network = bare_network
 		self.mask = mask
 		self.hosts = None
+	def _to_dic(self):
+		return dict(network=self.network, mask=  self.mask)
 
 def getInterfaces():
 	addrs = psutil.net_if_addrs()
