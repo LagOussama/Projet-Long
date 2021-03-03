@@ -8,4 +8,12 @@ from get_nic import getnic
 print(getnic.interfaces())
 
 interfaces = getnic.interfaces()
-print(getnic.ipaddr(addrs.keys()))
+states = getnic.ipaddr(addrs.keys())
+for key in states:
+	if states[key]['state'] == 'UP':
+		print(states[key])
+		if 'inet4' in states[key]:
+			print(states[key]['inet4'])
+
+
+
