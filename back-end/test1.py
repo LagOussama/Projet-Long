@@ -1,5 +1,4 @@
 import psutil
-<<<<<<< HEAD
 import socket
 import struct
 import ipcalc
