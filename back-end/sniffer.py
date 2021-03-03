@@ -8,6 +8,7 @@ def getPacketInfo(networkInterface=None):
     else:
         print("listening on %s" % networkInterface)
         capture = pyshark.LiveCapture(interface=networkInterface)
+
         for packet in capture.sniff_continuously():
             try:
                 localtime = time.asctime(time.localtime(time.time()))  
