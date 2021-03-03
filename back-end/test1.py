@@ -14,6 +14,7 @@ for key in states:
 		print(states[key])
 		if 'inet4' in states[key]:
 			print(states[key]['inet4'])
+			print(states[key]['inet4'].split('/'))
 
 
 
