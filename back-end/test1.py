@@ -1,11 +1,9 @@
 import psutil
-<<<<<<< HEAD
 import socket
 import struct
 import ipcalc
 
-addrs = psutil.net_if_addrs()
-print(addrs.keys())
+
 
 def cidr_to_netmask(cidr):
     network, net_bits = cidr.split('/')
@@ -27,23 +25,26 @@ class network:
 		self.mask = mask
 		self.hosts = None
 
+def getInterfaces():
+	addrs = psutil.net_if_addrs()
+	#interfaces = getnic.interfaces()
+	interfaces = getnic.ipaddr(addrs.keys())
+	return interfaces
 
-print(getnic.interfaces())
-interfaces = getnic.interfaces()
-states = getnic.ipaddr(addrs.keys())
-for key in states:
-	if states[key]['state'] == 'UP':
-		print(states[key])
-		if 'inet4' in states[key]:
-			print(states[key]['inet4'])
-			net , mask = cidr_to_netmask(states[key]['inet4'])
-			print(net)
-			print(mask)
-			addr = ipcalc.IP(net, mask=mask)
-			network_with_cidr = str(addr.guess_network())
-			bare_network = network_with_cidr.split('/')[0]
-			print(bare_network)
-			#print(states[key]['inet4'].split('/'))
+def test(states):
+	for key in states:
+		if states[key]['state'] == 'UP':
+			print(states[key])
+			if 'inet4' in states[key]:
+				print(states[key]['inet4'])
+				net , mask = cidr_to_netmask(states[key]['inet4'])
+				print(net)
+				print(mask)
+				addr = ipcalc.IP(net, mask=mask)
+				network_with_cidr = str(addr.guess_network())
+				bare_network = network_with_cidr.split('/')[0]
+				print(bare_network)
+				#print(states[key]['inet4'].split('/'))
 
 
 
