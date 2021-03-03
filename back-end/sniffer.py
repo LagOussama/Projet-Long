@@ -38,4 +38,4 @@ def getPacketInfo(networkInterface=None):
             except AttributeError as e:
                 pass
 
-getPacketInfo("wlp3s0")
+getPacketInfo(["wlp3s0" , "veth069f"])

@@ -1,0 +1,1 @@
+{"name":"Local: C","url":"/home/sabir/ProjetLong/Projet-Long/back-end/C.py","tests":[{"id":1614524147433,"input":"3\n7\n1 4 2 2 2 2 2\n2\n2 3\n8\n1 2 1 2 1 2 1 2","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/sabir/ProjetLong/Projet-Long/back-end/C.py","group":"local","local":true}
