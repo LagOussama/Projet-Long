@@ -9,6 +9,8 @@ def snifferThread(interfaceName):
     print ("--I'm scanning %s :D " % interfaceName)
     getPacketInfo(interfaceName)
 
+
+
 def Main():
     #dict shows complete info of all the host interfaces (state, @ip, @mac, ...)
     addrs = psutil.net_if_addrs()
@@ -23,7 +25,7 @@ def Main():
                 myThread.start()
             except Exception as err: 
                 pass # or raise err
-      
+
 if __name__ == "__main__":
   Main()
   
