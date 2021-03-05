@@ -14,7 +14,7 @@ export class NetworkService {
   constructor(private httpClient : HttpClient) { }
 
   getNetwork(){
-    return this.httpClient.get(this.host+"/index");
+    return this.httpClient.get(this.host+"/networks");
   }
 
 }
