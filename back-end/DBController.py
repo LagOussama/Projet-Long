@@ -15,3 +15,22 @@ def insertPacketInfo(packetDict, commande):
         coll.insert_one(packetDict)
     else:
         print(" invalid commande!")
+
+def insertNetwork(netDic):
+    coll = db['Networks']
+    coll.insert_one(netDic)
+
+def insertHost(hostDic):
+    coll = db['Hosts']
+    coll.insert_one(hostDic)
+
+def insertInterfaces(interDic):
+    coll = db['Interfaces']
+    coll.insert_one(interDic)
+
+def isNetworkExist(Network, mask):
+    coll = db['Networks']
+    res = coll.find({'network':Network, 'mask':mask})
+    if (len(list(res))>0):
+        return True
+    return False
