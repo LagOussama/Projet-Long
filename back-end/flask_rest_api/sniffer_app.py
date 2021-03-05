@@ -31,14 +31,8 @@ def get_Interfaces_By_Hostname():
   output = []
   coll = mongo.db.Interfaces
   myquery = { "Hostname": nodeName }
-  state=" "
-  HWaddr=" "
-  inet4=" "
-  inet6=" "
-  Hostname=" "
-  HostInterfaceName=" "
-  #for doc in coll.find(myquery):
-  output.append({'nodename' : nodeName}) 
+  for doc in coll.find(myquery):
+    del doc['_id']
+    output.append(doc)
   return jsonify({'result' : output})
-
 
