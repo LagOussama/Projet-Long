@@ -10,7 +10,7 @@ app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkTraffic'
 
 mongo = PyMongo(app)
 
-@app.route('/star', methods=['GET'])
+@app.route('/hosts', methods=['GET'])
 def get_all_hosts():
   host = mongo.db.Hosts
   output = []
