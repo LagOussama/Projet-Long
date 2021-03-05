@@ -13,8 +13,6 @@ def cidr_to_netmask(cidr):
 
 from get_nic import getnic
 
-
-
 class network:
 	def __init__(self,cidr):
 		net , mask = cidr_to_netmask(cidr)

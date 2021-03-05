@@ -51,9 +51,9 @@ def add(value):
         interfaces = value.get("interfaces")[interf]
         interfaces["Hostname"] = nagent.hostname
         interfaces["HostInterfaceName"] = interf
+        print("haha",interfaces)
         insertInterfaces(interfaces)
         if 'inet4' in interfaces:
-            print(dir(interfaces['inet4']))
             addresip = interfaces['inet4'] + ""
             net = test1.network(addresip)
             if not isNetworkExist(net.network, net.mask):

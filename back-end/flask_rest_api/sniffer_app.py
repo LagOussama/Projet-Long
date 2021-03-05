@@ -10,7 +10,6 @@ app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkTraffic'
 mongo = PyMongo(app)
 
 @app.route('/host', methods=['GET'])
-
 def get_all_hosts():
   host = mongo.db.Hosts
   output = []
@@ -26,11 +25,13 @@ def get_all_Networks():
     output.append({'ip_address' : s['network'], 'mask' : s['mask'],})
   return jsonify({'result' : output})
 
-@app.route('/network', methods=['GET'])
-def get_Number_Of_outgoing_packets(nodeName):
-  Pckt = mongo.db.PacketIP
+@app.route('/host/interfaces', methods=['GET'])
+def get_Interfaces_By_Hostname(nodeName):
   output = []
+  coll = mongo.db.Interfaces
+  myquery = { "Hostname": nodeName }
+  for doc in coll.find(myquery):
+    output.append({'state': doc['state'], 'HWaddr':doc['HWaddr'] , 'Hostname': doc['Hostname'], 'InterfaceName': doc['HostInterfaceName']})
   #todo
   return jsonify({'result' : output})
 
-  
