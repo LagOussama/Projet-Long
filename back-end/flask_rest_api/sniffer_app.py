@@ -26,13 +26,19 @@ def get_all_Networks():
   return jsonify({'result' : output})
 
 @app.route('/host/interfaces', methods=['GET'])
-def get_Interfaces_By_Hostname(nodeName):
+def get_Interfaces_By_Hostname():
+  nodeName = request.args.get('nodeName')
   output = []
   coll = mongo.db.Interfaces
   myquery = { "Hostname": nodeName }
-  for doc in coll.find(myquery):
-    output.append({'state': doc['state'], 'HWaddr':doc['HWaddr'] , 'Hostname': doc['Hostname'], 'InterfaceName': doc['HostInterfaceName']})
-  #todo
+  state=" "
+  HWaddr=" "
+  inet4=" "
+  inet6=" "
+  Hostname=" "
+  HostInterfaceName=" "
+  #for doc in coll.find(myquery):
+  output.append({'nodename' : nodeName}) 
   return jsonify({'result' : output})
 
 
