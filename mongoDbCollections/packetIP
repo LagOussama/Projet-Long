@@ -1,0 +1,785 @@
+[{
+  "_id": {
+    "$oid": "6044014abf37e0a365a5698b"
+  },
+  "time": {
+    "$date": "2021-03-06T22:25:14.353Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41530",
+  "ipDestination": "13.249.12.175",
+  "portDestination": "443",
+  "identification": 30251,
+  "packetLength": "52",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044014abf37e0a365a5698c"
+  },
+  "time": {
+    "$date": "2021-02-06T22:25:14.527Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "13.249.12.175",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41530",
+  "identification": 19210,
+  "packetLength": "52",
+  "packetTimeToLive": "246",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017b78243bfc1853e2ee"
+  },
+  "time": {
+    "$date": "2021-02-06T22:26:03.166Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "49086",
+  "ipDestination": "104.18.72.113",
+  "portDestination": "443",
+  "identification": 35790,
+  "packetLength": "79",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017b78243bfc1853e2ef"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:03.173Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "104.18.72.113",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "49086",
+  "identification": 58236,
+  "packetLength": "79",
+  "packetTimeToLive": "59",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017b78243bfc1853e2f0"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:03.175Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "49086",
+  "ipDestination": "104.18.72.113",
+  "portDestination": "443",
+  "identification": 35791,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017b78243bfc1853e2f1"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:03.177Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "51812",
+  "ipDestination": "143.204.226.46",
+  "portDestination": "443",
+  "identification": 1911,
+  "packetLength": "91",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017b78243bfc1853e2f2"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:03.179Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "51812",
+  "ipDestination": "143.204.226.46",
+  "portDestination": "443",
+  "identification": 1912,
+  "packetLength": "76",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017b78243bfc1853e2f3"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:03.180Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "143.204.226.46",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "51812",
+  "identification": 36676,
+  "packetLength": "52",
+  "packetTimeToLive": "243",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017b78243bfc1853e2f4"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:03.181Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "143.204.226.46",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "51812",
+  "identification": 36677,
+  "packetLength": "52",
+  "packetTimeToLive": "243",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017b78243bfc1853e2f5"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:03.183Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "51812",
+  "ipDestination": "143.204.226.46",
+  "portDestination": "443",
+  "identification": 0,
+  "packetLength": "52",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2f6"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.189Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "40786",
+  "ipDestination": "34.251.30.38",
+  "portDestination": "443",
+  "identification": 34740,
+  "packetLength": "98",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2f7"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.192Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "49088",
+  "ipDestination": "104.18.72.113",
+  "portDestination": "443",
+  "identification": 41348,
+  "packetLength": "79",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2f8"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.194Z"
+  },
+  "protocolType": "UDP",
+  "ipSource": "10.188.255.122",
+  "portSource": "44886",
+  "ipDestination": "10.188.0.1",
+  "portDestination": "53",
+  "identification": 5505,
+  "packetLength": "94",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2f9"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.196Z"
+  },
+  "protocolType": "UDP",
+  "ipSource": "10.188.0.1",
+  "portSource": "53",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "44886",
+  "identification": 60989,
+  "packetLength": "94",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2fa"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.198Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6522,
+  "packetLength": "60",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2fb"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.200Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "104.18.72.113",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "49088",
+  "identification": 8593,
+  "packetLength": "40",
+  "packetTimeToLive": "59",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2fc"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.202Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "104.18.72.113",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "49088",
+  "identification": 8594,
+  "packetLength": "79",
+  "packetTimeToLive": "59",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2fd"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.204Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "49088",
+  "ipDestination": "104.18.72.113",
+  "portDestination": "443",
+  "identification": 41349,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2fe"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.205Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "34.251.30.38",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "40786",
+  "identification": 54088,
+  "packetLength": "98",
+  "packetTimeToLive": "232",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e2ff"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.207Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "40786",
+  "ipDestination": "34.251.30.38",
+  "portDestination": "443",
+  "identification": 34741,
+  "packetLength": "52",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e300"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.208Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "40.77.226.250",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41476",
+  "identification": 7819,
+  "packetLength": "52",
+  "packetTimeToLive": "111",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e301"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.209Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6523,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e302"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.211Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6524,
+  "packetLength": "557",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e303"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.213Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "40.77.226.250",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41476",
+  "identification": 7820,
+  "packetLength": "1500",
+  "packetTimeToLive": "112",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e304"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.214Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6525,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e305"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.216Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "40.77.226.250",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41476",
+  "identification": 7821,
+  "packetLength": "1500",
+  "packetTimeToLive": "112",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e306"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.217Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6526,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e307"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.221Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "40.77.226.250",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41476",
+  "identification": 7822,
+  "packetLength": "886",
+  "packetTimeToLive": "112",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e308"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.222Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6527,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e309"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.224Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6528,
+  "packetLength": "133",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e30a"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.225Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "40.77.226.250",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41476",
+  "identification": 7823,
+  "packetLength": "91",
+  "packetTimeToLive": "112",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e30b"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.226Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6529,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e30c"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.228Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6530,
+  "packetLength": "1185",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e30d"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.229Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "40.77.226.250",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41476",
+  "identification": 7824,
+  "packetLength": "40",
+  "packetTimeToLive": "112",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e30e"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.231Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "40.77.226.250",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41476",
+  "identification": 7825,
+  "packetLength": "354",
+  "packetTimeToLive": "112",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e30f"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.232Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6531,
+  "packetLength": "71",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e310"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.233Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41476",
+  "ipDestination": "40.77.226.250",
+  "portDestination": "443",
+  "identification": 6532,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017c78243bfc1853e311"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:04.448Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "40.77.226.250",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41476",
+  "identification": 7826,
+  "packetLength": "40",
+  "packetTimeToLive": "112",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017d78243bfc1853e312"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:05.474Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "41530",
+  "ipDestination": "13.249.12.175",
+  "portDestination": "443",
+  "identification": 30256,
+  "packetLength": "52",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017d78243bfc1853e313"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:05.477Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "13.249.12.175",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "41530",
+  "identification": 36465,
+  "packetLength": "52",
+  "packetTimeToLive": "246",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017f78243bfc1853e314"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:07.262Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "36730",
+  "ipDestination": "99.83.219.81",
+  "portDestination": "443",
+  "identification": 30995,
+  "packetLength": "52",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044017f78243bfc1853e315"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:07.267Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "99.83.219.81",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "36730",
+  "identification": 6777,
+  "packetLength": "52",
+  "packetTimeToLive": "247",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044018278243bfc1853e316"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:10.080Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "47582",
+  "ipDestination": "104.16.36.13",
+  "portDestination": "443",
+  "identification": 62457,
+  "packetLength": "86",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044018278243bfc1853e317"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:10.083Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "104.16.36.13",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "47582",
+  "identification": 54532,
+  "packetLength": "40",
+  "packetTimeToLive": "59",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044018278243bfc1853e318"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:10.087Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "104.16.36.13",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "47582",
+  "identification": 54533,
+  "packetLength": "86",
+  "packetTimeToLive": "59",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044018278243bfc1853e319"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:10.088Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "47582",
+  "ipDestination": "104.16.36.13",
+  "portDestination": "443",
+  "identification": 62458,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044018378243bfc1853e31a"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:11.104Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "39472",
+  "ipDestination": "104.16.107.139",
+  "portDestination": "443",
+  "identification": 21606,
+  "packetLength": "86",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044018378243bfc1853e31b"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:11.107Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "104.16.107.139",
+  "portSource": "443",
+  "ipDestination": "10.188.255.122",
+  "portDestination": "39472",
+  "identification": 63055,
+  "packetLength": "86",
+  "packetTimeToLive": "59",
+  "interface": "wlp3s0"
+},{
+  "_id": {
+    "$oid": "6044018378243bfc1853e31c"
+  },
+  "time": {
+    "$date": "2021-03-06T22:26:11.110Z"
+  },
+  "protocolType": "TCP",
+  "ipSource": "10.188.255.122",
+  "portSource": "39472",
+  "ipDestination": "104.16.107.139",
+  "portDestination": "443",
+  "identification": 21607,
+  "packetLength": "40",
+  "packetTimeToLive": "64",
+  "interface": "wlp3s0"
+}]

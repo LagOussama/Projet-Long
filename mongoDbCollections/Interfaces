@@ -1,0 +1,63 @@
+[{
+  "_id": {
+    "$oid": "6042b41f7d35e2f23f5b7b56"
+  },
+  "state": "UNKNOWN",
+  "inet4": "127.0.0.1/8",
+  "inet6": "::1/128",
+  "Hostname": "siff",
+  "HostInterfaceName": "lo"
+},{
+  "_id": {
+    "$oid": "6042b41f7d35e2f23f5b7b57"
+  },
+  "state": "UP",
+  "HWaddr": "80:00:0b:5f:db:38",
+  "inet4": "10.188.255.122/16",
+  "inet6": "fe80::9dfa:88f8:c3e5:5034/64",
+  "Hostname": "pico",
+  "HostInterfaceName": "lo"
+},{
+  "_id": {
+    "$oid": "6042b41f7d35e2f23f5b7b58"
+  },
+  "state": "DOWN",
+  "HWaddr": "52:54:00:51:d5:e3",
+  "inet4": "192.168.122.1/24",
+  "Hostname": "pico",
+  "HostInterfaceName": "virbr0"
+},{
+  "_id": {
+    "$oid": "6042b41f7d35e2f23f5b7b59"
+  },
+  "state": "DOWN",
+  "HWaddr": "02:42:ce:bc:61:cc",
+  "inet4": "172.18.0.1/16",
+  "Hostname": "pico",
+  "HostInterfaceName": "br-93e3a6b2a387"
+},{
+  "_id": {
+    "$oid": "6042b41f7d35e2f23f5b7b5a"
+  },
+  "state": "DOWN",
+  "HWaddr": "02:42:9f:b1:bd:e8",
+  "inet4": "172.17.0.1/16",
+  "Hostname": "pico",
+  "HostInterfaceName": "docker0"
+},{
+  "_id": {
+    "$oid": "6042b41f7d35e2f23f5b7b5b"
+  },
+  "state": "DOWN",
+  "HWaddr": "34:e6:d7:17:bc:25",
+  "Hostname": "pico",
+  "HostInterfaceName": "eno1"
+},{
+  "_id": {
+    "$oid": "6042b41f7d35e2f23f5b7b5c"
+  },
+  "state": "DOWN",
+  "HWaddr": "52:54:00:51:d5:e3",
+  "Hostname": "pico",
+  "HostInterfaceName": "virbr0-nic"
+}]

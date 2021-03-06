@@ -1,5 +1,5 @@
 import pyshark
-import time
+import datetime
 from DBController  import *
 
 def getPacketInfo(networkInterface=None):
@@ -11,7 +11,7 @@ def getPacketInfo(networkInterface=None):
 
         for packet in capture.sniff_continuously():
             try:
-                localtime = time.asctime(time.localtime(time.time()))  
+                localtime = datetime.datetime.utcnow()
                 protocol = packet.transport_layer
                 src_addr = packet.ip.src   
                 src_port = packet[protocol].srcport 
