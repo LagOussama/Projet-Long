@@ -2,7 +2,8 @@ from flask import Flask
 from flask import jsonify
 from flask import request
 from flask_pymongo import PyMongo
-
+import datetime
+from dateutil import parser
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'NetworkTraffic'
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkTraffic'
@@ -75,21 +76,24 @@ def get_Nbpackets_By_Host():
         output.append(d)
     return jsonify({'result' : output})    
 
-"""
-to complete 
-@app.route('/host/packetPerDay', methods=['GET'])
-def get_Nbpackets_By_day_curr_month():
-    nodeName = request.args.get('nodeName')
-    output = []
-    coll = mongo.db.packetIP
-    for host in mongo.db.Hosts.find():
-        d = {}
-        d["hostname"] = host["hostname"]
-        IpAdresses = getip4interfaces(host["hostname"])
-        print(IpAdresses)
-        res = coll.count_documents( { "$or" :[{"ipDestination" : { "$in": IpAdresses }},{"ipSource" : { "$in": IpAdresses }}]})
-        d["nb_packet"] = res
-        output.append(d)
-    return jsonify({'result' : output})    
 
-"""
+@app.route('/host/packetPerDay', methods=['GET'])
+def get_Nbpackets_By_day_last30Day():
+    nodeName = request.args.get(nodeName)
+    IpAdresses = getip4interfaces(nodeName)
+    now = datetime.datetime.utcnow()
+    last_30d = (now - datetime.timedelta(days=30))
+    output  = mongo.db.packetIP.aggregate([
+    {"$match" : {"$and": [
+                      {"time" : {"$gt" : last_30d}},
+                      { "$or" : [{"ipDestination" : { "$in": IpAdresses }},{"ipSource" : {"$in": IpAdresses }}]}
+                        ]
+                }
+    },
+    {"$project":{"year":{"$year":"$time"}, "month":{"$month":"$time"},"day": {"$dayOfMonth":"$time"}}},
+    {"$group":{"_id" :{ "year" :"$year", "month" :"$month", "day" :"$day"}, "nb_packet":{"$sum" :1}}}
+    ])
+    #return jsonify({'result' : output})  
+    return list(output) 
+print(get_Nbpackets_By_day_last30Day())
+
