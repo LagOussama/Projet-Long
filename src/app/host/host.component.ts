@@ -3,6 +3,8 @@ import {HostService} from "../service/host.service";
 import {Host} from "../common/host";
 import {Network} from "../common/network";
 
+import {hosts} from "../hosts"
+
 @Component({
   selector: 'app-host',
   templateUrl: './host.component.html',
@@ -10,7 +12,7 @@ import {Network} from "../common/network";
 })
 export class HostComponent implements OnInit {
 
-  hosts: Array<Host> = []
+  hosts: any;
 
   constructor(private hostService: HostService) {
   }
@@ -20,16 +22,7 @@ export class HostComponent implements OnInit {
   }
 
   getHostsList() {
-    let host = new Host();
-    host.addrIp = "192.168.1.2"
-    host.adrMac = "MDh312:1e1ij:12NDau"
-    host.hostName = "Host1"
-    host.interfaces = ['Int1', 'Int2'];
-    host.nbPaquet = 200;
-    host.ports = ['Port1', 'Port2']
-
-    this.hosts.push(host)
-    console.log(host);
+    this.hosts = hosts ;
 
     // this.hostService.getHost().subscribe(
     //   data => {

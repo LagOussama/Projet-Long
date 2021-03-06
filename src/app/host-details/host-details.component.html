@@ -1,0 +1,112 @@
+<div class="d-flex flex-column" id="content-wrapper">
+  <div id="content">
+    <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top"></nav>
+    <div class="container-fluid">
+      <h3 class="text-dark mb-4">Host information</h3>
+      <div class="row mb-3">
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <div class="card shadow mb-3">
+                <div class="card-header py-3">
+                  <p class="text-primary m-0 font-weight-bold">Host Settings</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="form-row">
+                      <div class="col">
+                        <div class="form-group"><label><strong>Host Name</strong></label><input class="form-control" type="text" placeholder="{{hostDetail.hostName}}" name="hostname" disabled="disabled"></div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group"><label><strong> Address Mac</strong></label><input class="form-control" type="text" placeholder="{{hostDetail.adrMac}}" name="email" disabled="disabled"></div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <div class="form-group"><label><strong>Nombre Total de paquet</strong></label><input class="form-control" type="text" placeholder="{{  totalPaquet }}" name="first_name" disabled="disabled"></div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <table *ngIf="hostDetail" class="table table-responsive w-100 d-block d-md-table">
+                          <thead>
+                          <tr>
+                            <th>Nom Interface Reseau</th>
+
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let tmpInterface of hostDetail.interfaces" >
+                            <td>{{tmpInterface}}</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <div class="col">
+                        <table *ngIf="hostDetail" class="table table-responsive w-100 d-block d-md-table">
+                          <thead>
+                          <tr>
+                            <th>Port</th>
+
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let tmpPort of hostDetail.ports" >
+                            <td>{{tmpPort}}</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+                      </div>
+
+                      <div class="col">
+                        <table *ngIf="hostDetail" class="table table-responsive w-100 d-block d-md-table">
+                          <thead>
+                          <tr>
+                            <th>Nombre de Paquet</th>
+
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let tmpPaquet of hostDetail.nbPaquet" >
+                            <td>{{tmpPaquet}}</td>
+                          </tr>
+
+                          </tbody>
+                        </table>
+
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="card shadow">
+                <div class="card-header py-3">
+                  <p class="text-primary m-0 font-weight-bold">Paquet Use Per Interface</p>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <div class="form-group"><label for="address"><strong>Address</strong></label><input class="form-control" type="text" placeholder="Sunset Blvd, 38" name="address"></div>
+                    <div class="form-row">
+                      <div class="col">
+                        <div class="form-group"><label for="city"><strong>City</strong></label><input class="form-control" type="text" placeholder="Los Angeles" name="city"></div>
+                      </div>
+                      <div class="col">
+                        <div class="form-group"><label for="country"><strong>Country</strong></label><input class="form-control" type="text" placeholder="USA" name="country"></div>
+                      </div>
+                    </div>
+                    <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

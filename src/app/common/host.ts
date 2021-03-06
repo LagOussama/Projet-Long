@@ -1,4 +1,5 @@
 export class Host{
+  id : number;
   hostName : string;
   addrIp : string;
   adrMac : string;
