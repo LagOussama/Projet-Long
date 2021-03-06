@@ -7,6 +7,7 @@ import { IndexComponent } from './index/index.component';
 import {RouterModule, Routes} from "@angular/router";
 import { HostComponent } from './host/host.component';
 import {NetworkService} from "./service/network.service";
+import {HostService} from "./service/host.service";
 
 const routes:Routes = [
   {path:'index',component:IndexComponent},
@@ -27,7 +28,7 @@ const routes:Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [NetworkService],
+  providers: [NetworkService,HostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

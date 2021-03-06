@@ -110,17 +110,17 @@
                     <thead>
                     <tr>
                       <th>Network</th>
+                      <th>Mask</th>
                       <th>Description</th>
                       <th>Hosts</th>
-                      <th>Added On</th>
                     </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let tmpNetwork of networks">
                         <td>{{tmpNetwork.adress}}</td>
+                        <td>{{tmpNetwork.mask}}</td>
                         <td>{{tmpNetwork.description}}</td>
                         <td>{{tmpNetwork.hosts}}</td>
-                        <td>{{tmpNetwork.addedOn}}</td>
                       </tr>
 
                     </tbody>
