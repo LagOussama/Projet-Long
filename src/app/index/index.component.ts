@@ -11,8 +11,6 @@ export class IndexComponent implements OnInit {
 
   networks: Array<Network> = []
 
-
-
   constructor(private networkService:NetworkService) { }
 
 
@@ -25,7 +23,7 @@ export class IndexComponent implements OnInit {
      netw.adress= "192.168.1.1"
      netw.description = "Network 1"
      netw.hosts = "15"
-     netw.addedOn = new Date();
+     netw.mask = "255.255.0.0";
 
        console.log(netw)
 

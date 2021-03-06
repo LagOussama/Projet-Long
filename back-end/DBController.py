@@ -16,59 +16,6 @@ def insertPacketInfo(packetDict, commande):
     else:
         print(" invalid commande!")
 
-
-def getHosts():
-    coll = db['Hosts']
-    return coll.find()
-
-
-def getip4interfaces(hostname):
-    host_interfaces = getinterfaces(hostname)
-    ip4addreses = []
-    for interface in host_interfaces:
-        interface = getInterface_info(interface,hostname)
-        if 'inet4' in interface:
-            ip4addreses.append(interface['inet4'])
-    return ip4addreses
-
-def getinterfaces(hostname):
-    coll = db['Hosts']
-    return list(coll.find_one({'hostname': hostname})['interfaces'])
-
-def getInterface_info(interface,hostname):
-    coll = db['Interfaces']
-    return coll.find_one({'Hostname': hostname,'HostInterfaceName':interface})
-
-
-def gethostpackets(hostip):
-    coll = db['packetIP']
-    #print(hostip)
-    query = {'ipSource': hostip} #x2
-    results = list(coll.find(query))
-    query = {'ipDestination': hostip}
-    results+=(list(coll.find(query)))
-    return results
-
-#gethostpackets('192.168.1.7')
-def conexist(ip1,ip2):
-    coll = db['Connexions']
-    res = coll.find({'ip1':ip1, 'ip2':ip2})
-    if (len(list(res))>0):
-        return True
-
-    res = coll.find({'ip1':ip2, 'ip2':ip1})
-    if (len(list(res))>0):
-        return True
-    return False
-
-def insertCons(Cons):
-   for con in Cons:
-        insertCon(con)
-
-def insertCon(con):
-    coll = db['Connexions']
-    coll.insert_one(con)
-
 def insertNetwork(netDic):
     coll = db['Networks']
     coll.insert_one(netDic)
