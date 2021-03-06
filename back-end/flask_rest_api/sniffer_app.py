@@ -25,6 +25,9 @@ def get_all_Networks():
     output.append({'ip_address' : s['network'], 'mask' : s['mask'],})
   return jsonify({'result' : output})
 
+
+
+
 @app.route('/host/interfaces', methods=['GET'])
 def get_Interfaces_By_Hostname():
   nodeName = request.args.get('nodeName')
