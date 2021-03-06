@@ -79,7 +79,7 @@ def get_Nbpackets_By_Host():
 
 @app.route('/host/packetPerDay', methods=['GET'])
 def get_Nbpackets_By_day_last30Day():
-    nodeName = request.args.get(nodeName)
+    nodeName = request.args.get("nodeName")
     IpAdresses = getip4interfaces(nodeName)
     now = datetime.datetime.utcnow()
     last_30d = (now - datetime.timedelta(days=30))
