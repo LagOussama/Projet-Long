@@ -1,0 +1,2 @@
+_id,hostname,ip_address,interfaces
+604203d29ef925e76162e671,pico,127.0.1.1,"[""lo"",""wlp3s0"",""virbr0"",""docker0"",""br-93e3a6b2a387"",""veth069fd78"",""eno1"",""virbr0-nic""]"
