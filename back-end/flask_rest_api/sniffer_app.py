@@ -37,7 +37,7 @@ def get_Interfaces_By_Hostname():
     output.append(doc)
   return jsonify({'result' : output})
 
-@app.route('/packets', methods=['GET'])
+@app.route('/interfaces/packet', methods=['GET'])
 def get_Nbpackets_By_Interface():
   output = []
   coll = mongo.db.packetIP
@@ -45,7 +45,6 @@ def get_Nbpackets_By_Interface():
     [{ 
     "$group" :  
         {"_id" : "$interface",
-        "HostName": '$interface"
          "nb_packet" : {"$sum" : 1}
          }}
     ]) 
@@ -53,3 +52,44 @@ def get_Nbpackets_By_Interface():
     output.append(doc)
   return jsonify({'result' : output})
 
+def getip4interfaces(hostname):
+    coll = mongo.db.Interfaces
+    query = {'inet4': { "$exists": True}, "Hostname":hostname}
+    host_interfaces = coll.find(query)
+    ip4addreses = []
+    for interface in host_interfaces:
+            ip4addreses.append(interface['inet4'].split("/")[0])
+    return ip4addreses
+
+@app.route('/host/packet', methods=['GET'])
+def get_Nbpackets_By_Host():
+    output = []
+    coll = mongo.db.packetIP
+    for host in mongo.db.Hosts.find():
+        d = {}
+        d["hostname"] = host["hostname"]
+        IpAdresses = getip4interfaces(host["hostname"])
+        print(IpAdresses)
+        res = coll.count_documents( { "$or" :[{"ipDestination" : { "$in": IpAdresses }},{"ipSource" : { "$in": IpAdresses }}]})
+        d["nb_packet"] = res
+        output.append(d)
+    return jsonify({'result' : output})    
+
+"""
+to complete 
+@app.route('/host/packetPerDay', methods=['GET'])
+def get_Nbpackets_By_day_curr_month():
+    nodeName = request.args.get('nodeName')
+    output = []
+    coll = mongo.db.packetIP
+    for host in mongo.db.Hosts.find():
+        d = {}
+        d["hostname"] = host["hostname"]
+        IpAdresses = getip4interfaces(host["hostname"])
+        print(IpAdresses)
+        res = coll.count_documents( { "$or" :[{"ipDestination" : { "$in": IpAdresses }},{"ipSource" : { "$in": IpAdresses }}]})
+        d["nb_packet"] = res
+        output.append(d)
+    return jsonify({'result' : output})    
+
+"""
