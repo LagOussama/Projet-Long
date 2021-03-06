@@ -36,3 +36,19 @@ def get_Interfaces_By_Hostname():
     output.append(doc)
   return jsonify({'result' : output})
 
+@app.route('/packets', methods=['GET'])
+def get_Nbpackets_By_Interface():
+  output = []
+  coll = mongo.db.packetIP
+  agg_result= coll.aggregate( 
+    [{ 
+    "$group" :  
+        {"_id" : "$interface",
+        "HostName": '$interface"
+         "nb_packet" : {"$sum" : 1}
+         }}
+    ]) 
+  for doc in agg_result:
+    output.append(doc)
+  return jsonify({'result' : output})
+
