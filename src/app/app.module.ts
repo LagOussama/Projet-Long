@@ -16,7 +16,7 @@ const routes:Routes = [
   {path:'index',component:IndexComponent},
   {path:'host',component:HostComponent},
   {path:'plot',component:HostPlotComponent},
-  {path: 'hostinfo/:hostname', component: HostDetailsComponent},
+  {path: 'host/:hostname', component: HostDetailsComponent},
   {path: 'host/:hostId/:hostId', component: HostDetailsComponent},
 
   {path:'', redirectTo:'/index',pathMatch:'full'}

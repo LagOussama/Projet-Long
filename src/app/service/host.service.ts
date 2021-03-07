@@ -22,6 +22,8 @@ export class HostService {
   }
 
   public getResource(url){
-    return this.httpClient.get(url);
+
+
+    return this.httpClient.get(this.host+"/host/"+url);
   }
 }

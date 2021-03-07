@@ -12,13 +12,13 @@
                   <p class="text-primary m-0 font-weight-bold">Host Settings</p>
                 </div>
                 <div class="card-body">
-                  <form *ngIf="currentHost">
+                  <form *ngFor="let tmp of currentHost.result" >
                     <div class="form-row">
                       <div class="col">
-                        <div class="form-group"><label><strong>Host Name</strong></label><input class="form-control" type="text" placeholder="{{currentHost.name}}" name="hostname" disabled="disabled"></div>
+                        <div class="form-group"><label><strong>Host Name</strong></label><input class="form-control" type="text" placeholder="{{tmp.name}}" name="hostname" disabled="disabled"></div>
                       </div>
                       <div class="col">
-                        <div class="form-group"><label><strong> Address Mac</strong></label><input class="form-control" type="text" placeholder="{{currentHost.ip_address}}" name="email" disabled="disabled"></div>
+                        <div class="form-group"><label><strong> IP Address</strong></label><input class="form-control" type="text" placeholder="{{tmp.ip_address}}" name="email" disabled="disabled"></div>
                       </div>
                     </div>
                     <div class="form-row">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-row">
                       <div class="col">
-                        <table *ngIf="currentHost" class="table table-responsive w-100 d-block d-md-table">
+                        <table *ngIf="currentHost"  class="table table-responsive w-100 d-block d-md-table">
                           <thead>
                           <tr>
                             <th>Nom Interface Reseau</th>
@@ -36,10 +36,10 @@
 
                           </tr>
                           </thead>
-                          <tbody>
-                          <tr *ngFor="let tmpInterface of currentHost.interfaces" >
-                            <td>NADA</td>
-                          <!--  <Button class="btn btn-dark" [routerLink]="['/host/'+hostDetail.id, tmpInterface.id]"> Click Here !</Button> -->
+                          <tbody >
+                          <tr *ngFor="let tmpInterface of tmp.interfaces" >
+                            <td>{{tmpInterface}}</td>
+                           <Button class="btn btn-dark" > Click Here !</Button>
                           </tr>
 
                           </tbody>

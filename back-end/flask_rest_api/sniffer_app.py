@@ -9,7 +9,7 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'NetworkSniffing'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkSniffing'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkTraffic'
 
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
 

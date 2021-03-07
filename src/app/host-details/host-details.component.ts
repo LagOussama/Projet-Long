@@ -12,7 +12,7 @@ import {Host} from "../common/host";
 })
 export class HostDetailsComponent implements OnInit {
 
-  private currentHost:any;
+   currentHost:any;
 
   constructor( private router: Router, private route: ActivatedRoute, private hostService : HostService) {
 
@@ -22,10 +22,11 @@ export class HostDetailsComponent implements OnInit {
   ngOnInit(): void {
     let url = this.route.snapshot.params.hostname
 
+
     this.hostService.getResource(url)
       .subscribe(data =>{
         this.currentHost = data;
-        console.log(this.currentHost)
+        console.log(this.currentHost.result)
         },
           err=>{
         console.log(err)
