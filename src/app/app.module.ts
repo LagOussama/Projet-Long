@@ -9,10 +9,12 @@ import { HostComponent } from './host/host.component';
 import {NetworkService} from "./service/network.service";
 import {HostService} from "./service/host.service";
 import { HostDetailsComponent } from './host-details/host-details.component';
+import { HostPlotComponent } from './host-plot/host-plot.component';
 
 const routes:Routes = [
   {path:'index',component:IndexComponent},
   {path:'host',component:HostComponent},
+  {path:'plot',component:HostPlotComponent},
   {path: 'host/:hostId', component: HostDetailsComponent},
   {path:'', redirectTo:'/index',pathMatch:'full'}
 
@@ -23,7 +25,8 @@ const routes:Routes = [
     AppComponent,
     IndexComponent,
     HostComponent,
-    HostDetailsComponent
+    HostDetailsComponent,
+    HostPlotComponent
   ],
   imports: [
     HttpClientModule,
