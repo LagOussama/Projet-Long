@@ -22,8 +22,10 @@ export class HostService {
   }
 
   public getResource(url){
+    return this.httpClient.get(this.host+"/host/"+url);
+  }
 
-
+  public getInterface(url){
     return this.httpClient.get(this.host+"/host/"+url);
   }
 }

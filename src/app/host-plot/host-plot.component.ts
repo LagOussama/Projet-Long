@@ -13,9 +13,9 @@ export class HostPlotComponent implements OnInit {
 
   ngOnInit(): void {
 	let dataPoints = [];
-	let y = 0;		
-	for ( var i = 0; i < 10000; i++ ) {		  
-		y += Math.round(5 + Math.random() * (-5 - 5));	
+	let y = 0;
+	for ( var i = 0; i < 10000; i++ ) {
+		y += Math.round(5 + Math.random() * (-5 - 5));
 		dataPoints.push({ y: y});
 	}
 	let chart = new CanvasJS.Chart("chartContainer", {
@@ -30,11 +30,11 @@ export class HostPlotComponent implements OnInit {
 		}],
 		data: [
 		{
-			type: "line",                
+			type: "line",
 			dataPoints: dataPoints
 		}]
 	});
-		
+
 	chart.render();
     }
 

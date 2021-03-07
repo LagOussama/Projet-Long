@@ -37,8 +37,6 @@ export class HostComponent implements OnInit {
 
   onHostInfo(i){
     let url = "/host/"+i;
-
-
     this.router.navigateByUrl(url);
   }
 

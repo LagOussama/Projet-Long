@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {HostService} from "../service/host.service";
-import {Host} from "../common/host";
+import * as CanvasJS from '../../assets/canvasjs.min';
 
 
 
@@ -32,7 +32,39 @@ export class HostDetailsComponent implements OnInit {
         console.log(err)
 
       })
+    this.onPlot();
+  }
+  onInterfaceInfo(i){
+    let url = "/host/"+i;
+    this.router.navigateByUrl(url);
   }
 
+  onPlot(){
+    let dataPoints = [];
+    let y = 0;
+    for ( var i = 0; i < 10000; i++ ) {
+      y += Math.round(5 + Math.random() * (-5 - 5));
+      dataPoints.push({ y: y});
+    }
+    let chart = new CanvasJS.Chart("chartContainer", {
+      zoomEnabled: true,
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Processor Utilization"
+      },
+      subtitles:[{
+        text: "subtitle"
+      }],
+      data: [
+        {
+          type: "line",
+          dataPoints: dataPoints
+        }]
+    });
+
+    chart.render();
+
+  }
 
 }
