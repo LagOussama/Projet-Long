@@ -18,7 +18,8 @@
                 <td>{{tmpHost.hostName}}</td>
                 <td>{{tmpHost.adrMac}}</td>
                 <td>{{tmpHost.addrIp}}</td>
-                <Button class="btn btn-dark" (click)="onProductInfo(tmpHost.adrMac)"> Click Here !</Button>
+
+               <Button class="btn btn-dark" [routerLink]="['/host', tmpHost.id]"> Click Here !</Button>
 
               </tr>
 

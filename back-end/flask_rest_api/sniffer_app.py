@@ -26,14 +26,31 @@ def get_all_Networks():
     output.append({'ip_address' : s['network'], 'mask' : s['mask'],})
   return jsonify({'result' : output})
 
+
 @app.route('/host/interfaces', methods=['GET'])
-def get_Interfaces_By_Hostname(nodeName):
+def get_Interfaces_By_Hostname():
+  nodeName = request.args.get('nodeName')
   output = []
   coll = mongo.db.Interfaces
   myquery = { "Hostname": nodeName }
   for doc in coll.find(myquery):
-    output.append({'state': doc['state'], 'HWaddr':doc['HWaddr'] , 'Hostname': doc['Hostname'], 'InterfaceName': doc['HostInterfaceName']})
-  #todo
+    del doc['_id']
+    output.append(doc)
+  return jsonify({'result' : output})
+
+@app.route('/interfaces/packet', methods=['GET'])
+def get_Nbpackets_By_Interface():
+  output = []
+  coll = mongo.db.packetIP
+  agg_result= coll.aggregate(
+    [{
+    "$group" :
+        {"_id" : "$interface",
+         "nb_packet" : {"$sum" : 1}
+         }}
+    ])
+  for doc in agg_result:
+    output.append(doc)
   return jsonify({'result' : output})
 
 def getip4interfaces(hostname):
