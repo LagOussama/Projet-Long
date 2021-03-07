@@ -57,13 +57,12 @@ def get_Nbpackets_By_Host():
         res = coll.count_documents( { "$or" :[{"ipDestination" : { "$in": IpAdresses }},{"ipSource" : { "$in": IpAdresses }}]})
         d["nb_packet"] = res
         output.append(d)
-    return jsonify({'result' : output})    
+    return jsonify({'result' : output})  
 
-
-@app.route('/host/packetPerDay', methods=['GET'])
+@app.route('/host', methods=['GET'])
 def get_Nbpackets_By_day_last30Day():
-    nodeName = request.args.get("nodeName")
-    IpAdresses = getip4interfaces(nodeName)
+    #nodeName = request.args.get("nodeName")
+    IpAdresses = getip4interfaces("nodeName")
     now = datetime.datetime.utcnow()
     last_30d = (now - datetime.timedelta(days=30))
     output  = mongo.db.packetIP.aggregate([
@@ -76,6 +75,18 @@ def get_Nbpackets_By_day_last30Day():
     {"$project":{"year":{"$year":"$time"}, "month":{"$month":"$time"},"day": {"$dayOfMonth":"$time"}}},
     {"$group":{"_id" :{ "year" :"$year", "month" :"$month", "day" :"$day"}, "nb_packet":{"$sum" :1}}}
     ])
-    #return jsonify({'result' : output})  
-    return list(output) 
+    return jsonify({'result' : output})  
+    #return list(output)
 
+@app.route('/host/interface', methods=['GET'])  
+def get_inteface_info():
+    nodeName = request.args.get("nodeName")
+    interface = request.args.get("interface")
+    coll = mongo.db.Interfaces
+    query = {"HostInterfaceName":interface, "Hostname":nodeName}
+    interfaceInfo = coll.find(query)
+    return jsonify({'result' : list(interfaceInfo)})  
+
+
+
+#print(get_Nbpackets_By_day_last30Day())
