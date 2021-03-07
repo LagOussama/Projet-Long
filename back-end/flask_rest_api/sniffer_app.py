@@ -102,8 +102,11 @@ def get_inteface_info():
     coll = mongo.db.Interfaces
     query = {"HostInterfaceName":interface, "Hostname":nodeName}
     interfaceInfo = coll.find(query)
-    return jsonify({'result' : list(interfaceInfo)})  
-
-
+    output = []
+    for doc in interfaceInfo:
+      del doc['_id']
+      output.append(doc)
+    #return list(interfaceInfo)
+    return jsonify({'result' :output}) 
 
 #print(get_Nbpackets_By_day_last30Day())
