@@ -62,17 +62,22 @@
                         <table *ngIf="currentHost"  class="table table-responsive w-100 d-block d-md-table">
                           <thead>
                           <tr>
-                            <th>Nom Interface Reseau</th>
-                            <th> More Information</th>
+                            <th>Interface Name</th>
+                            <th>MAC Address</th>
+                            <th>IP Address</th>
+                            <th>Number of Paquet</th>
+                            <th>State</th>
 
                           </tr>
                           </thead>
-                          <tbody >
-                          <tr *ngFor="let tmpInterface of tmp.interfaces" >
-                            <td>{{tmpInterface}}</td>
-                           <Button class="btn btn-dark" (click)="onInterfaceInfo(tmp)" > Click Here !</Button>
-                          </tr>
-
+                          <tbody *ngFor="let tmpInterface of tmp.interfaces">
+                            <tr>
+                              <td>{{tmpInterface}}</td>
+                              <td>{{tmpInterface}}</td>
+                              <td>{{tmpInterface}}</td>
+                              <td class="text-danger">{{tmpInterface}}</td>
+                              <td class="">{{tmpInterface}}</td>
+                            </tr>
                           </tbody>
                         </table>
                       </div>
