@@ -24,7 +24,7 @@ def get_host_by_id(host_name):
   output = []
   for s in host.find():
     if s['hostname'] == host_name:
-      output.append({'name' : s['hostname'], 'ip_address' : s['ip_address']})
+      output.append({'name' : s['hostname'], 'ip_address' : s['ip_address'], 'interfaces' : s['interfaces']})
   return jsonify({'result' : output})
 
 
