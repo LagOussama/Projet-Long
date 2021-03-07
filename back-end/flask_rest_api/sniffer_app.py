@@ -5,8 +5,8 @@ from flask_pymongo import PyMongo
 import datetime
 from dateutil import parser
 app = Flask(__name__)
-app.config['MONGO_DBNAME'] = 'NetworkTraffic'
-app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkTraffic'
+app.config['MONGO_DBNAME'] = 'NetworkSniffing'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkSniffing'
 
 mongo = PyMongo(app)
 
@@ -17,6 +17,17 @@ def get_all_hosts():
   for s in host.find():
     output.append({'name' : s['hostname'], 'ip_address' : s['ip_address']})
   return jsonify({'result' : output})
+
+@app.route('/host/<host_name>', methods=['GET'])
+def get_host_by_id(host_name):
+  host = mongo.db.Hosts
+  output = []
+  for s in host.find():
+    if s['hostname'] == host_name:
+      output.append({'name' : s['hostname'], 'ip_address' : s['ip_address']})
+  return jsonify({'result' : output})
+
+
 
 @app.route('/network', methods=['GET'])
 def get_all_Networks():
