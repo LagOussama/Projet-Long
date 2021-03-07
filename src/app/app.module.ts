@@ -9,17 +9,14 @@ import { HostComponent } from './host/host.component';
 import {NetworkService} from "./service/network.service";
 import {HostService} from "./service/host.service";
 import { HostDetailsComponent } from './host-details/host-details.component';
-<<<<<<< HEAD
 import { InterfaceComponent } from './interface/interface.component';
-=======
 import { HostPlotComponent } from './host-plot/host-plot.component';
->>>>>>> 8644c72b1c60b6620ea0c6eae60d5d18cb1c593a
 
 const routes:Routes = [
   {path:'index',component:IndexComponent},
   {path:'host',component:HostComponent},
   {path:'plot',component:HostPlotComponent},
-  {path: 'host/:hostId', component: HostDetailsComponent},
+  {path: 'hostinfo/:hostname', component: HostDetailsComponent},
   {path: 'host/:hostId/:hostId', component: HostDetailsComponent},
 
   {path:'', redirectTo:'/index',pathMatch:'full'}

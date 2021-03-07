@@ -42,7 +42,7 @@
               <div class="row align-items-center no-gutters">
                 <div class="col mr-2">
                   <div class="text-uppercase text-primary font-weight-bold text-xs mb-1"><span>Network</span></div>
-                  <div class="text-dark font-weight-bold h5 mb-0"><span>{{networks.length}}</span></div>
+                  <div class="text-dark font-weight-bold h5 mb-0"><span>{{networks.result.length}}</span></div>
                 </div>
                 <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
               </div>
@@ -111,16 +111,12 @@
                     <tr>
                       <th>Network</th>
                       <th>Mask</th>
-                      <th>Description</th>
-                      <th>Hosts</th>
                     </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let tmpNetwork of networks">
-                        <td>{{tmpNetwork.adress}}</td>
+                      <tr *ngFor="let tmpNetwork of networks.result">
+                        <td>{{tmpNetwork.ip_address}}</td>
                         <td>{{tmpNetwork.mask}}</td>
-                        <td>{{tmpNetwork.description}}</td>
-                        <td>{{tmpNetwork.hosts}}</td>
                       </tr>
 
                     </tbody>

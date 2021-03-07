@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import { hosts } from '../hosts';
+import {ActivatedRoute, Router} from "@angular/router";
+import {HostService} from "../service/host.service";
+import {Host} from "../common/host";
+
 
 
 @Component({
@@ -10,32 +12,26 @@ import { hosts } from '../hosts';
 })
 export class HostDetailsComponent implements OnInit {
 
-  hostDetail;
-  totalPaquet: number = 0;
+  private currentHost:any;
 
-  constructor(  private route: ActivatedRoute) {
+  constructor( private router: Router, private route: ActivatedRoute, private hostService : HostService) {
 
   }
+
 
   ngOnInit(): void {
-    // First get the Host id from the current route.
+    let url = this.route.snapshot.params.hostname
 
-    const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = Number(routeParams.get('hostId'));
+    this.hostService.getResource(url)
+      .subscribe(data =>{
+        this.currentHost = data;
+        console.log(this.currentHost)
+        },
+          err=>{
+        console.log(err)
 
-    // Find the Host that correspond with the id provided in route.
-    this.hostDetail = hosts.find(hostDetail => hostDetail.id === productIdFromRoute);
-
-
-    for (let i = 0 ; i < this.hostDetail.nbPaquet.length ; i++){
-      this.totalPaquet = this.totalPaquet + this.hostDetail.nbPaquet[i];
-
-    }
-    console.log(this.totalPaquet);
-
-
-
-
+      })
   }
+
 
 }

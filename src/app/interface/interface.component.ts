@@ -17,7 +17,7 @@ export class InterfaceComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('hostId'));
 
-    this.interfaceDetail = hosts.find(hostDetail => interfaceDetail.id === productIdFromRoute);
+//    this.interfaceDetail = hosts.find(hostDetail => interfaceDetail.id === productIdFromRoute);
 
   }
 

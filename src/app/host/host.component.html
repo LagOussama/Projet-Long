@@ -6,20 +6,19 @@
             <table *ngIf="hosts" class="table table-responsive w-100 d-block d-md-table">
               <thead>
               <tr>
-                <th>Nom Interface Reseau</th>
-                <th>Adresse Mac</th>
-                <th>Nombre de paquets</th>
-                <th>More Information</th>
+                <th>Host ID</th>
+                <th>Host Name</th>
+                <th>Adresse IP</th>
 
               </tr>
               </thead>
               <tbody>
-              <tr *ngFor="let tmpHost of hosts">
-                <td>{{tmpHost.hostName}}</td>
-                <td>{{tmpHost.adrMac}}</td>
-                <td>{{tmpHost.addrIp}}</td>
+              <tr *ngFor="let tmpHost of hosts.result">
 
-               <Button class="btn btn-dark" [routerLink]="['/host', tmpHost.id]"> Click Here !</Button>
+                <td>{{tmpHost.name}}</td>
+                <td>{{tmpHost.ip_address}}</td>
+
+               <Button class="btn btn-dark" (click)="onHostInfo(tmpHost.name)"> Click Here !</Button>
 
               </tr>
 

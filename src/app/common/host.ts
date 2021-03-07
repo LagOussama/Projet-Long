@@ -1,11 +1,8 @@
 
 export class Host{
-  id : number;
-  hostName : string;
-  addrIp : string;
-  adrMac : string;
-  interfaces : String[];
-  nbPaquet : number;
+  _id : number;
+  name : string;
+  ip_address : string;
 }
 
 interface Interf {

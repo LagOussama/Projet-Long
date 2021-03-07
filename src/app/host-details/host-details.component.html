@@ -12,23 +12,23 @@
                   <p class="text-primary m-0 font-weight-bold">Host Settings</p>
                 </div>
                 <div class="card-body">
-                  <form>
+                  <form *ngIf="currentHost">
                     <div class="form-row">
                       <div class="col">
-                        <div class="form-group"><label><strong>Host Name</strong></label><input class="form-control" type="text" placeholder="{{hostDetail.hostName}}" name="hostname" disabled="disabled"></div>
+                        <div class="form-group"><label><strong>Host Name</strong></label><input class="form-control" type="text" placeholder="{{currentHost.name}}" name="hostname" disabled="disabled"></div>
                       </div>
                       <div class="col">
-                        <div class="form-group"><label><strong> Address Mac</strong></label><input class="form-control" type="text" placeholder="{{hostDetail.adrMac}}" name="email" disabled="disabled"></div>
-                      </div>
-                    </div>
-                    <div class="form-row">
-                      <div class="col">
-                        <div class="form-group"><label><strong>Nombre Total de paquet</strong></label><input class="form-control" type="text" placeholder="{{  totalPaquet }}" name="first_name" disabled="disabled"></div>
+                        <div class="form-group"><label><strong> Address Mac</strong></label><input class="form-control" type="text" placeholder="{{currentHost.ip_address}}" name="email" disabled="disabled"></div>
                       </div>
                     </div>
                     <div class="form-row">
                       <div class="col">
-                        <table *ngIf="hostDetail" class="table table-responsive w-100 d-block d-md-table">
+                        <div class="form-group"><label><strong>Nombre Total de paquet</strong></label><input class="form-control" type="text" placeholder="XXXX" name="first_name" disabled="disabled"></div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col">
+                        <table *ngIf="currentHost" class="table table-responsive w-100 d-block d-md-table">
                           <thead>
                           <tr>
                             <th>Nom Interface Reseau</th>
@@ -37,9 +37,9 @@
                           </tr>
                           </thead>
                           <tbody>
-                          <tr *ngFor="let tmpInterface of hostDetail.interfaces" >
-                            <td>{{tmpInterface}}</td>
-                            <Button class="btn btn-dark" [routerLink]="['/host/'+hostDetail.id, tmpInterface.id]"> Click Here !</Button>
+                          <tr *ngFor="let tmpInterface of currentHost.interfaces" >
+                            <td>NADA</td>
+                          <!--  <Button class="btn btn-dark" [routerLink]="['/host/'+hostDetail.id, tmpInterface.id]"> Click Here !</Button> -->
                           </tr>
 
                           </tbody>

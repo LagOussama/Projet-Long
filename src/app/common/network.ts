@@ -1,6 +1,4 @@
 export class Network {
-  adress: string;
-  description: string;
+  ip_address: string;
   mask: string;
-  hosts: string;
 }

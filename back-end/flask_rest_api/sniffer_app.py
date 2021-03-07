@@ -4,9 +4,15 @@ from flask import request
 from flask_pymongo import PyMongo
 import datetime
 from dateutil import parser
+
+from flask_cors import CORS, cross_origin
+
 app = Flask(__name__)
 app.config['MONGO_DBNAME'] = 'NetworkTraffic'
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkTraffic'
+
+cors = CORS(app, resources={r"/*": {"origins": "http://localhost:4200"}})
+
 
 mongo = PyMongo(app)
 
@@ -19,6 +25,7 @@ def get_all_hosts():
   return jsonify({'result' : output})
 
 @app.route('/network', methods=['GET'])
+@cross_origin()
 def get_all_Networks():
   net = mongo.db.Networks
   output = []
@@ -59,7 +66,7 @@ def get_Nbpackets_By_Host():
         res = coll.count_documents( { "$or" :[{"ipDestination" : { "$in": IpAdresses }},{"ipSource" : { "$in": IpAdresses }}]})
         d["nb_packet"] = res
         output.append(d)
-    return jsonify({'result' : output})  
+    return jsonify({'result' : output})
 
 @app.route('/host', methods=['GET'])
 def get_Nbpackets_By_day_last30Day():
@@ -77,10 +84,10 @@ def get_Nbpackets_By_day_last30Day():
     {"$project":{"year":{"$year":"$time"}, "month":{"$month":"$time"},"day": {"$dayOfMonth":"$time"}}},
     {"$group":{"_id" :{ "year" :"$year", "month" :"$month", "day" :"$day"}, "nb_packet":{"$sum" :1}}}
     ])
-    return jsonify({'result' : output})  
+    return jsonify({'result' : output})
     #return list(output)
 
-@app.route('/host/interface', methods=['GET'])  
+@app.route('/host/interface', methods=['GET'])
 def get_inteface_info():
     nodeName = request.args.get("nodeName")
     interface = request.args.get("interface")
@@ -92,6 +99,6 @@ def get_inteface_info():
       del doc['_id']
       output.append(doc)
     #return list(interfaceInfo)
-    return jsonify({'result' :output}) 
+    return jsonify({'result' :output})
 
 #print(get_Nbpackets_By_day_last30Day())
