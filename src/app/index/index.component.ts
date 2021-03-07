@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NetworkService} from "../service/network.service";
 import {Network} from "../common/network";
+import  {hosts} from "../hosts"
 
 @Component({
   selector: 'app-index',
@@ -10,14 +11,17 @@ import {Network} from "../common/network";
 export class IndexComponent implements OnInit {
 
   networks: Array<Network> = []
-
-
+  hostNumb : number
 
   constructor(private networkService:NetworkService) { }
 
 
   ngOnInit(): void {
     this.getNetworkList();
+
+    this.hostNumb = hosts.length;
+
+
   }
 
    getNetworkList() {
@@ -25,7 +29,7 @@ export class IndexComponent implements OnInit {
      netw.adress= "192.168.1.1"
      netw.description = "Network 1"
      netw.hosts = "15"
-     netw.addedOn = new Date();
+     netw.mask = "255.255.0.0";
 
        console.log(netw)
 

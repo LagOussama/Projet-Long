@@ -59,8 +59,8 @@ def conexist(ip1,ip2):
     res = coll.find({'ip1':ip2, 'ip2':ip1})
     if (len(list(res))>0):
         return True
-
     return False
+
 def insertCons(Cons):
    for con in Cons:
         insertCon(con)

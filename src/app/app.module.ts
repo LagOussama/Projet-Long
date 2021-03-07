@@ -7,10 +7,13 @@ import { IndexComponent } from './index/index.component';
 import {RouterModule, Routes} from "@angular/router";
 import { HostComponent } from './host/host.component';
 import {NetworkService} from "./service/network.service";
+import {HostService} from "./service/host.service";
+import { HostDetailsComponent } from './host-details/host-details.component';
 
 const routes:Routes = [
   {path:'index',component:IndexComponent},
   {path:'host',component:HostComponent},
+  {path: 'host/:hostId', component: HostDetailsComponent},
   {path:'', redirectTo:'/index',pathMatch:'full'}
 
 
@@ -19,7 +22,8 @@ const routes:Routes = [
   declarations: [
     AppComponent,
     IndexComponent,
-    HostComponent
+    HostComponent,
+    HostDetailsComponent
   ],
   imports: [
     HttpClientModule,
@@ -27,7 +31,7 @@ const routes:Routes = [
     AppRoutingModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [NetworkService],
+  providers: [NetworkService,HostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
