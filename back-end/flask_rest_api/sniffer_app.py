@@ -47,7 +47,7 @@ def get_Nbpackets_By_Interface():
     [{ 
     "$group" :  
         {"_id" : "$interface",
-        "HostName": '$interface"
+        "HostName": '$interface',
          "nb_packet" : {"$sum" : 1}
          }}
     ]) 
