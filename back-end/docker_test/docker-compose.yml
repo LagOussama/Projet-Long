@@ -1,0 +1,8 @@
+version: '2'
+services:
+  tshark:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    container_name: tshark
+
