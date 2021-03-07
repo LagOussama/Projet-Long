@@ -32,54 +32,19 @@
                           <thead>
                           <tr>
                             <th>Nom Interface Reseau</th>
+                            <th> More Information</th>
 
                           </tr>
                           </thead>
                           <tbody>
                           <tr *ngFor="let tmpInterface of hostDetail.interfaces" >
                             <td>{{tmpInterface}}</td>
+                            <Button class="btn btn-dark" [routerLink]="['/host/'+hostDetail.id, tmpInterface.id]"> Click Here !</Button>
                           </tr>
 
                           </tbody>
                         </table>
-
                       </div>
-                      <div class="col">
-                        <table *ngIf="hostDetail" class="table table-responsive w-100 d-block d-md-table">
-                          <thead>
-                          <tr>
-                            <th>Port</th>
-
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr *ngFor="let tmpPort of hostDetail.ports" >
-                            <td>{{tmpPort}}</td>
-                          </tr>
-
-                          </tbody>
-                        </table>
-
-                      </div>
-
-                      <div class="col">
-                        <table *ngIf="hostDetail" class="table table-responsive w-100 d-block d-md-table">
-                          <thead>
-                          <tr>
-                            <th>Nombre de Paquet</th>
-
-                          </tr>
-                          </thead>
-                          <tbody>
-                          <tr *ngFor="let tmpPaquet of hostDetail.nbPaquet" >
-                            <td>{{tmpPaquet}}</td>
-                          </tr>
-
-                          </tbody>
-                        </table>
-
-                      </div>
-
                     </div>
                   </form>
                 </div>

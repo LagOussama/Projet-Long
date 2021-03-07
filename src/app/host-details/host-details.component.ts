@@ -20,8 +20,6 @@ export class HostDetailsComponent implements OnInit {
   ngOnInit(): void {
     // First get the Host id from the current route.
 
-    console.log("HAHAHHAHAHA")
-
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('hostId'));
 
