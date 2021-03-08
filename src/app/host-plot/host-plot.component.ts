@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import * as CanvasJS from '../../assets/canvasjs.min';
+import {HostDetailsComponent} from "../host-details/host-details.component";
+import {HostDetailToPlotService} from "../service/host-detail-to-plot.service";
+import {ActivatedRoute, Router} from "@angular/router";
+import {HostService} from "../service/host.service";
 
 
 @Component({
@@ -9,34 +13,68 @@ import * as CanvasJS from '../../assets/canvasjs.min';
 })
 export class HostPlotComponent implements OnInit {
 
-  constructor() { }
+  currentHost : any;
 
-  ngOnInit(): void {
-	let dataPoints = [];
-	let y = 0;
-	for ( var i = 0; i < 10000; i++ ) {
-		y += Math.round(5 + Math.random() * (-5 - 5));
-		dataPoints.push({ y: y});
-	}
-	let chart = new CanvasJS.Chart("chartContainer", {
-		zoomEnabled: true,
-		animationEnabled: true,
-		exportEnabled: true,
-		title: {
-			text: "Processor Utilization"
-		},
-		subtitles:[{
-			text: "subtitle"
-		}],
-		data: [
-		{
-			type: "line",
-			dataPoints: dataPoints
-		}]
-	});
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              private hostService : HostService,
+              private hdp: HostDetailsComponent) {
 
-	chart.render();
-    }
+    this.onGetRes();
+  }
+
+   ngOnInit(): void {
+
+   let res =  this.currentHost;
+
+
+     console.log(res)
+
+
+
+     let data  = []
+
+
+
+     let chart = new CanvasJS.Chart("chartContainer", {
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Interface Use"
+      },
+      data: [{
+        type: "column",
+        dataPoints: [
+
+        ]
+      }]
+    });
+    chart.render();
+
+
+  }
+
+   onGetRes(){
+    let url = this.route.snapshot.params.hostname
+
+
+     this.hostService.getResource(url)
+      .subscribe(data =>{
+          this.currentHost = data;
+
+        },
+        err=>{
+          console.log(err)
+
+        });
+  }
 
 }
 
+interface intrf {
+  HWaddr : string;
+  HostInterfaceName :string
+  Hostname : string
+  inet4 : string
+  nb_packet_i : number
+}

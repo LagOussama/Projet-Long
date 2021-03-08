@@ -54,7 +54,7 @@
                     </div>
                     <div class="form-row">
                       <div class="col">
-                        <div class="form-group"><label><strong>Nombre Total de paquet</strong></label><input class="form-control" type="text" placeholder="XXXX" name="first_name" disabled="disabled"></div>
+                        <div class="form-group"><label><strong>Nombre Total de paquet</strong></label><input class="form-control" type="text" placeholder="{{tmp.nb_packet}}" name="first_name" disabled="disabled"></div>
                       </div>
                     </div>
                     <div class="form-row">
@@ -93,7 +93,11 @@
                 <div class="card-header py-3">
                   <p class="text-primary m-0 font-weight-bold">Paquet Use Per Interface</p>
                 </div>
-                <div class="card-body"><div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+                <div class="card-body">
+
+
+                  <app-host-plot></app-host-plot>
+
                 </div>
               </div>
             </div>

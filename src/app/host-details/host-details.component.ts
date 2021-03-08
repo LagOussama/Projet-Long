@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {HostService} from "../service/host.service";
 import * as CanvasJS from '../../assets/canvasjs.min';
+import {HostDetailToPlotService} from "../service/host-detail-to-plot.service";
 
 
 
@@ -12,12 +13,16 @@ import * as CanvasJS from '../../assets/canvasjs.min';
 })
 export class HostDetailsComponent implements OnInit {
 
-   currentHost:any;
+  currentHost:any;
   currentHostIP:any;
 
   currentinterfaces: Array<intrf>;
 
-  constructor( private router: Router, private route: ActivatedRoute, private hostService : HostService) {
+  constructor( private router: Router,
+               private route: ActivatedRoute,
+               private hostService : HostService,
+                private data: HostDetailToPlotService
+               ) {
 
   }
 
@@ -36,8 +41,6 @@ export class HostDetailsComponent implements OnInit {
       });
 
 
-
-    this.onPlot();
   }
   onInterfaceInfo(i){
     let url = "/host/"+i;
@@ -70,6 +73,10 @@ export class HostDetailsComponent implements OnInit {
 
     chart.render();
 
+  }
+
+  get curr(){
+    return this.currentHost;
   }
 
 
