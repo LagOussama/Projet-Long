@@ -131,7 +131,7 @@ def get_Nbpackets_Interface(ipAdrr):
   res2 = mongo.db.packetIP.count_documents({"ipSource" : str(ipAdrr) })
   return res+res2
 
-@app.route('/', methods=['GET'])
+@app.route('/protocol', methods=['GET'])
 def get_nbPacket():
     coll = mongo.db.packetIP
     output = []

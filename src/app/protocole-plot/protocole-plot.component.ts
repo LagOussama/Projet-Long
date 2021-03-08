@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as CanvasJS from '../../assets/canvasjs.min';
 
 @Component({
@@ -10,27 +10,28 @@ export class ProtocolePlotComponent implements OnInit {
 
   constructor() { }
 
+  @Input() Message2 : any
+
   ngOnInit(): void {
+
+    let dataPoints = [];
+
+    console.log(this.Message2.result.length);
+
+    for(let tmpNetwork of this.Message2.result){
+      dataPoints.push({ label: tmpNetwork._id, y: Number(tmpNetwork.nb_packet)});
+    }
+    let y = 0;
 
     let chart = new CanvasJS.Chart("chartContainer", {
       animationEnabled: true,
       exportEnabled: true,
       title: {
-        text: "Basic Column Chart in Angular"
+        text: "Protocol Use Per packet"
       },
       data: [{
         type: "column",
-        dataPoints: [
-          { y: 71, label: "Apple" },
-          { y: 55, label: "Mango" },
-          { y: 50, label: "Orange" },
-          { y: 65, label: "Banana" },
-          { y: 95, label: "Pineapple" },
-          { y: 68, label: "Pears" },
-          { y: 28, label: "Grapes" },
-          { y: 34, label: "Lychee" },
-          { y: 14, label: "Jackfruit" }
-        ]
+        dataPoints: dataPoints
       }]
     });
 
