@@ -1,0 +1,9 @@
+FROM base_image
+
+
+#COPY ./src/common/ /app
+#COPY ./src/clientfiles/ /app
+
+#USER shark
+USER root
+CMD bash ./client1.sh

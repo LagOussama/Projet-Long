@@ -96,8 +96,8 @@ def get_inteface_info():
 
 
 
-#if __name__ == "__main__":
-#   app.run(host='0.0.0.0')
+if __name__ == "__main__":
+   app.run(host='0.0.0.0')
 
 
 #print(get_Nbpackets_By_day_last30Day())
