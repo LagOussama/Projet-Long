@@ -12,6 +12,8 @@ export class IndexComponent implements OnInit {
 
   public networks: any;
   hostNumb : number
+  public protocol: any;
+
 
   constructor(private networkService:NetworkService) { }
 
@@ -20,6 +22,8 @@ export class IndexComponent implements OnInit {
     this.getNetworkList();
 
     this.hostNumb = hosts.length;
+
+    this.getProt();
 
 
   }
@@ -33,4 +37,18 @@ export class IndexComponent implements OnInit {
 
         });
    }
+
+  getProt() {
+    this.networkService.getByProtocol().subscribe(
+      data => {
+        this.protocol = data;
+      }, error => {
+        console.log(error);
+
+      });
+  }
+
+
+
+
 }

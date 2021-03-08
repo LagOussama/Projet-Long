@@ -65,7 +65,6 @@
                             <th>Interface Name</th>
                             <th>MAC Address</th>
                             <th>IP Address</th>
-                            <th>Number of Paquet</th>
                             <th>State</th>
 
                           </tr>
@@ -75,11 +74,9 @@
                               <td>{{tmpInterface.HostInterfaceName}}</td>
                               <td>{{tmpInterface.HWaddr}}</td>
                               <td>{{tmpInterface.inet4}}</td>
-                              <td>{{tmpInterface.nb_packet_i}}</td>
-
-                              <td class="text-success"> <a *ngIf="tmpInterface.state === 'UP' ">{{tmpInterface.state}} </a></td>
-                              <td class="text-danger"> <a *ngIf="tmpInterface.state === 'DOWN' ">{{tmpInterface.state}} </a></td>
-                              <td class="text-warning"> <a *ngIf="tmpInterface.state === 'UKNOWN' ">{{tmpInterface.state}} </a></td>
+                              <td *ngIf="tmpInterface.state === 'UP' " class="text-success"> <a >{{tmpInterface.state}} </a></td>
+                              <td  *ngIf="tmpInterface.state === 'DOWN'" class="text-danger"> <a>{{tmpInterface.state}} </a></td>
+                              <td *ngIf="tmpInterface.state === 'UKNOWN' " class="text-warning"> <a>{{tmpInterface.state}} </a></td>
 
                             </tr>
                           </tbody>
@@ -91,7 +88,7 @@
               </div>
               <div class="card shadow">
                 <div class="card-header py-3">
-                  <p class="text-primary m-0 font-weight-bold">Paquet Use Per Interface</p>
+                  <p class="text-primary m-0 font-weight-bold">Packet Use Per Interface</p>
                 </div>
                 <div class="card-body">
 

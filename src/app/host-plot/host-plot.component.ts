@@ -22,8 +22,7 @@ export class HostPlotComponent implements OnInit {
   constructor(private router: Router,
               private route: ActivatedRoute,
               private hostService : HostService,
-              private hdp: HostDetailsComponent) {
-  }
+              private hdp: HostDetailsComponent) {}
 
    ngOnInit(): void {
 

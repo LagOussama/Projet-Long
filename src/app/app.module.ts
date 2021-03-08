@@ -11,6 +11,7 @@ import {HostService} from "./service/host.service";
 import { HostDetailsComponent } from './host-details/host-details.component';
 import { InterfaceComponent } from './interface/interface.component';
 import { HostPlotComponent } from './host-plot/host-plot.component';
+import { ProtocolePlotComponent } from './protocole-plot/protocole-plot.component';
 
 const routes:Routes = [
   {path:'index',component:IndexComponent},
@@ -30,7 +31,8 @@ const routes:Routes = [
     HostComponent,
     HostDetailsComponent,
     InterfaceComponent,
-    HostPlotComponent
+    HostPlotComponent,
+    ProtocolePlotComponent
   ],
   imports: [
     HttpClientModule,

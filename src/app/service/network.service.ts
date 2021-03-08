@@ -17,5 +17,9 @@ export class NetworkService {
     return this.httpClient.get(this.host+"/network");
   }
 
+  getByProtocol(){
+    return this.httpClient.get(this.host+"/protocol");
+  }
+
 }
 
