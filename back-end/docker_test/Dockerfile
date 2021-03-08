@@ -12,6 +12,7 @@ RUN apt-get update && \
     apt-get install -y python3-distutils && \
     apt-get install -y curl
 
+COPY ./requirement.txt .
 # fix pip
 RUN curl -O https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     python3 get-pip.py && \
@@ -19,8 +20,8 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
 
 # install pyshark and wireshark
 RUN apt-get install -y  tshark && \
-    pip install pyshark && \
-    pip install pymongo
+    apt install -y iproute2 && \
+    pip install -r requirement.txt
 
 # add group wireshark, add shark user and give right permissions
 
@@ -28,7 +29,7 @@ RUN apt-get install -y  tshark && \
 #RUN dpkg-reconfigure wireshark-common
 
 # Copy the current directory contents into the container at /app
-ADD . /app
+COPY ./src/ /app
 
 # Set the working directory to /app
 WORKDIR /app
@@ -36,4 +37,4 @@ WORKDIR /app
 # switch to user shark
 #USER shark
 USER root
-#CMD [ "python3", "process.py" ]
+#CMD bash ./websnif.sh

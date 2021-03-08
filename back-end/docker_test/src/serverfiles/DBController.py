@@ -1,7 +1,8 @@
 from pymongo import MongoClient
 
 #client = MongoClient('192.168.1.7', 27017)
-client = MongoClient('mongodb://admin:myadminpassword@172.17.0.1:27017')
+#client = MongoClient('mongodb://admin:myadminpassword@172.17.0.1:27017')
+client = MongoClient('mongodb://172.35.200.10:27017')
 db = client['NetworkTraffic']
 
 def insertPacketInfo(packetDict, commande):

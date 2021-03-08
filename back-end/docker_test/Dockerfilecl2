@@ -1,0 +1,8 @@
+FROM base_image
+
+
+#COPY ./src/common/ /app
+#COPY ./src/clientfiles/ /app
+
+USER root
+CMD bash ./client2.sh

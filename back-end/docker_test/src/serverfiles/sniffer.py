@@ -37,5 +37,5 @@ def getPacketInfo(networkInterface=None):
             except AttributeError as e:
                 pass
 
-getPacketInfo("eth0")
+#getPacketInfo("eth0")
 

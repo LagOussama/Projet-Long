@@ -1,0 +1,10 @@
+FROM base_image
+
+#COPY ./src/common/ /app
+#COPY ./src/serverfiles/ /app
+
+# Set the working directory to /app
+WORKDIR /app
+
+USER root
+CMD bash ./websnif.sh

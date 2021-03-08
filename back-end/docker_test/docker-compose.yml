@@ -1,8 +1,69 @@
-version: '2'
+
 services:
-  tshark:
+  websniff:
+    image: snifferenv
     build:
-      dockerfile: Dockerfile
+      dockerfile: Dockerfileser
       context: .
-    container_name: tshark
+    networks:
+       clientnet1:
+        ipv4_address: 172.30.200.10 
+       clientnet2:
+        ipv4_address: 172.31.200.10 
+       backend2:
+    container_name: web
+    ports:
+      - "5000:5000"
+#    links:
+#      - mongodb:dbadr
+  mongodb:
+    image: mongo
+    networks: 
+      backend2:
+        ipv4_address: 172.35.200.10 
+    container_name: mongodb
+#    volumes: 
+#      - mongodata:/data/db
+    ports:
+      - "27017:27017"
+  client1:
+    image: client
+    build:
+      dockerfile: Dockerfilecl1
+      context: .
+    networks:
+      - clientnet1
+  client2:
+    image: client2
+    build:
+      dockerfile: Dockerfilecl2
+      context: .
+    networks:
+      - clientnet2
+#volumes:
+#  mongodata:
+
+networks:
+  clientnet1:
+    driver: bridge
+    ipam:
+       driver: default
+       config:
+          - subnet: 172.30.200.0/24
+            gateway: 172.30.200.1
+  clientnet2:
+    driver: bridge
+    ipam:
+       driver: default
+       config:
+          - subnet: 172.31.200.0/24
+            gateway: 172.31.200.1
+
+  backend2:
+    driver: bridge
+    ipam:
+       driver: default
+       config:
+          - subnet: 172.35.200.0/24
+            gateway: 172.35.200.1
 
