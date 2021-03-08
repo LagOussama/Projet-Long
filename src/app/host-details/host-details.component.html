@@ -72,11 +72,15 @@
                           </thead>
                           <tbody *ngFor="let tmpInterface of tmp.interfaces">
                             <tr>
-                              <td>{{tmpInterface}}</td>
-                              <td>{{tmpInterface}}</td>
-                              <td>{{tmpInterface}}</td>
-                              <td class="text-danger">{{tmpInterface}}</td>
-                              <td class="">{{tmpInterface}}</td>
+                              <td>{{tmpInterface.HostInterfaceName}}</td>
+                              <td>{{tmpInterface.HWaddr}}</td>
+                              <td>{{tmpInterface.inet4}}</td>
+                              <td>{{tmpInterface.nb_packet_i}}</td>
+
+                              <td class="text-success"> <a *ngIf="tmpInterface.state === 'UP' ">{{tmpInterface.state}} </a></td>
+                              <td class="text-danger"> <a *ngIf="tmpInterface.state === 'DOWN' ">{{tmpInterface.state}} </a></td>
+                              <td class="text-warning"> <a *ngIf="tmpInterface.state === 'UKNOWN' ">{{tmpInterface.state}} </a></td>
+
                             </tr>
                           </tbody>
                         </table>

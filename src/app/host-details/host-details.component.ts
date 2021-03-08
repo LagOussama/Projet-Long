@@ -13,6 +13,9 @@ import * as CanvasJS from '../../assets/canvasjs.min';
 export class HostDetailsComponent implements OnInit {
 
    currentHost:any;
+  currentHostIP:any;
+
+  currentinterfaces: Array<intrf>;
 
   constructor( private router: Router, private route: ActivatedRoute, private hostService : HostService) {
 
@@ -26,12 +29,14 @@ export class HostDetailsComponent implements OnInit {
     this.hostService.getResource(url)
       .subscribe(data =>{
         this.currentHost = data;
-        console.log(this.currentHost.result)
         },
           err=>{
         console.log(err)
 
-      })
+      });
+
+
+
     this.onPlot();
   }
   onInterfaceInfo(i){
@@ -67,4 +72,12 @@ export class HostDetailsComponent implements OnInit {
 
   }
 
+
+}
+interface intrf {
+  HWaddr : string;
+  HostInterfaceName :string
+  Hostname : string
+  inet4 : string
+  nb_packet_i : number
 }
