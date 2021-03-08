@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
-import {Network} from "../common/network";
+
 import {HttpClient} from "@angular/common/http";
 import {map} from "rxjs/operators";
 
@@ -9,12 +8,13 @@ import {map} from "rxjs/operators";
 })
 export class NetworkService {
 
-  public host:string="http://localhost:8080"
+  public host:string="http://localhost:5000"
 
   constructor(private httpClient : HttpClient) { }
 
   getNetwork(){
-    return this.httpClient.get(this.host+"/networks");
+    console.log( this.httpClient.get(this.host+"/network"));
+    return this.httpClient.get(this.host+"/network");
   }
 
 }

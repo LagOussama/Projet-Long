@@ -10,7 +10,7 @@ import  {hosts} from "../hosts"
 })
 export class IndexComponent implements OnInit {
 
-  networks: Array<Network> = []
+  public networks: any;
   hostNumb : number
 
   constructor(private networkService:NetworkService) { }
@@ -25,23 +25,12 @@ export class IndexComponent implements OnInit {
   }
 
    getNetworkList() {
-     let netw = new Network();
-     netw.adress= "192.168.1.1"
-     netw.description = "Network 1"
-     netw.hosts = "15"
-     netw.mask = "255.255.0.0";
+      this.networkService.getNetwork().subscribe(
+        data => {
+          this.networks = data;
+        }, error => {
+          console.log(error);
 
-       console.log(netw)
-
-     this.networks.push(netw)
-
-
-     // this.networkService.getNetwork().subscribe(
-     //   data => {
-     //     this.networks = data;
-     //   }, error => {
-     //     console.log(error);
-     //
-     //   });
+        });
    }
 }

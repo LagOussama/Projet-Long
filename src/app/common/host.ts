@@ -1,9 +1,12 @@
+
 export class Host{
+  _id : number;
+  name : string;
+  ip_address : string;
+}
+
+interface Interf {
   id : number;
-  hostName : string;
-  addrIp : string;
-  adrMac : string;
-  interfaces : string[];
-  ports : string[];
-  nbPaquet : number;
+  state: string;
+  addrIp: string;
 }

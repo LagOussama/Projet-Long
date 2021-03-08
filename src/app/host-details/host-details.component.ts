@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import { hosts } from '../hosts';
+import {ActivatedRoute, Router} from "@angular/router";
+import {HostService} from "../service/host.service";
+import * as CanvasJS from '../../assets/canvasjs.min';
+
 
 
 @Component({
@@ -10,33 +12,58 @@ import { hosts } from '../hosts';
 })
 export class HostDetailsComponent implements OnInit {
 
-  hostDetail;
-  totalPaquet: number = 0;
+   currentHost:any;
 
-  constructor(  private route: ActivatedRoute) {
+  constructor( private router: Router, private route: ActivatedRoute, private hostService : HostService) {
 
   }
 
+
   ngOnInit(): void {
-    // First get the Host id from the current route.
-
-    console.log("HAHAHHAHAHA")
-
-    const routeParams = this.route.snapshot.paramMap;
-    const productIdFromRoute = Number(routeParams.get('hostId'));
-
-    // Find the Host that correspond with the id provided in route.
-    this.hostDetail = hosts.find(hostDetail => hostDetail.id === productIdFromRoute);
+    let url = this.route.snapshot.params.hostname
 
 
-    for (let i = 0 ; i < this.hostDetail.nbPaquet.length ; i++){
-      this.totalPaquet = this.totalPaquet + this.hostDetail.nbPaquet[i];
+    this.hostService.getResource(url)
+      .subscribe(data =>{
+        this.currentHost = data;
+        console.log(this.currentHost.result)
+        },
+          err=>{
+        console.log(err)
 
+      })
+    this.onPlot();
+  }
+  onInterfaceInfo(i){
+    let url = "/host/"+i;
+    this.router.navigateByUrl(url);
+  }
+
+  onPlot(){
+    let dataPoints = [];
+    let y = 0;
+    for ( var i = 0; i < 10000; i++ ) {
+      y += Math.round(5 + Math.random() * (-5 - 5));
+      dataPoints.push({ y: y});
     }
-    console.log(this.totalPaquet);
+    let chart = new CanvasJS.Chart("chartContainer", {
+      zoomEnabled: true,
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Processor Utilization"
+      },
+      subtitles:[{
+        text: "subtitle"
+      }],
+      data: [
+        {
+          type: "line",
+          dataPoints: dataPoints
+        }]
+    });
 
-
-
+    chart.render();
 
   }
 
