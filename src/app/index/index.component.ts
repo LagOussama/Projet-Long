@@ -11,8 +11,9 @@ import  {hosts} from "../hosts"
 export class IndexComponent implements OnInit {
 
   public networks: any;
-  hostNumb : number
+  public hostNumb : any;
   public protocol: any;
+  public nbPck: any;
 
 
   constructor(private networkService:NetworkService) { }
@@ -21,9 +22,11 @@ export class IndexComponent implements OnInit {
   ngOnInit(): void {
     this.getNetworkList();
 
-    this.hostNumb = hosts.length;
+   this.getHost();
 
     this.getProt();
+
+    this.getPacket();
 
 
   }
@@ -48,7 +51,25 @@ export class IndexComponent implements OnInit {
       });
   }
 
+  getPacket() {
+    this.networkService.getNbPacket().subscribe(
+      data => {
+        this.nbPck = data;
+      }, error => {
+        console.log(error);
+
+      });
+  }
 
 
+  getHost() {
+    this.networkService.getNbHost().subscribe(
+      data => {
+        this.hostNumb = data;
+      }, error => {
+        console.log(error);
+
+      });
+  }
 
 }
