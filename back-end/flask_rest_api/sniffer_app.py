@@ -9,7 +9,7 @@ from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
 
-app.config['MONGO_DBNAME'] = 'NetworkSniffing'
+app.config['MONGO_DBNAME'] = 'NetworkTraffic'
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/NetworkTraffic'
 
 #app.config['MONGO_DBNAME'] = 'NetworkTraffic'
@@ -118,19 +118,17 @@ def get_intefaces_info(host_name):
       del doc['_id']
       if 'inet6' in doc:
          del doc['inet6']
-      intName = doc['HostInterfaceName']
       if 'inet4' in doc:
-        print("ok")
-        doc['nb_packet_i'] = get_Nbpackets_Interface(intName)
+        doc['nb_packet_i'] = get_Nbpackets_Interface(doc['inet4'].split("/")[0])
       else:
         doc['nb_packet_i'] = 0
       output.append(doc)
     #return list(interfaceInfo)
     return output
 
-def get_Nbpackets_Interface(inetrface_name):
-  IpAdresses = mongo.db.Interfaces.find_one({'HostInterfaceName':inetrface_name})['inet4'].split("/")[0]
-  res = mongo.db.packetIP.count_documents( { "$or" :[{"ipDestination" : IpAdresses },{"ipSource" : IpAdresses }]})
-  return res
+def get_Nbpackets_Interface(ipAdrr):
+  res = mongo.db.packetIP.count_documents({"ipDestination" : str(ipAdrr) })
+  res2 = mongo.db.packetIP.count_documents({"ipSource" : str(ipAdrr) })
+  return res+res2
 
 #print(get_Nbpackets_By_day_last30Day())
