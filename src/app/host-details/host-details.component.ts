@@ -47,31 +47,9 @@ export class HostDetailsComponent implements OnInit {
     this.router.navigateByUrl(url);
   }
 
-  onPlot(){
-    let dataPoints = [];
-    let y = 0;
-    for ( var i = 0; i < 10000; i++ ) {
-      y += Math.round(5 + Math.random() * (-5 - 5));
-      dataPoints.push({ y: y});
-    }
-    let chart = new CanvasJS.Chart("chartContainer", {
-      zoomEnabled: true,
-      animationEnabled: true,
-      exportEnabled: true,
-      title: {
-        text: "Processor Utilization"
-      },
-      subtitles:[{
-        text: "subtitle"
-      }],
-      data: [
-        {
-          type: "line",
-          dataPoints: dataPoints
-        }]
-    });
+  onPlot( interf ){
+    console.log(interf)
 
-    chart.render();
 
   }
 

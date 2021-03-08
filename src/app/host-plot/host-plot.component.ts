@@ -15,47 +15,52 @@ export class HostPlotComponent implements OnInit {
 
   currentHost : any;
 
+  @Input() Message : any
+
+
+
   constructor(private router: Router,
               private route: ActivatedRoute,
               private hostService : HostService,
               private hdp: HostDetailsComponent) {
-
-    this.onGetRes();
   }
 
    ngOnInit(): void {
 
-   let res =  this.currentHost;
+
+     let dataPoints = [];
+     console.log("11111")
 
 
-     console.log(res)
+      this.currentHost = this.Message;
+
+     console.log(this.Message.result[0].interfaces.length);
 
 
+     let y = 0;
+      for ( var i = 0; i < this.Message.result[0].interfaces.length; i++ ) {
 
-     let data  = []
-
-
+        dataPoints.push({ label: this.Message.result[0].interfaces[i].HostInterfaceName, y: Number(this.Message.result[0].interfaces[i].nb_packet_i)});
+      }
 
      let chart = new CanvasJS.Chart("chartContainer", {
-      animationEnabled: true,
-      exportEnabled: true,
-      title: {
-        text: "Interface Use"
-      },
-      data: [{
-        type: "column",
-        dataPoints: [
+       animationEnabled: true,
+       exportEnabled: true,
+       title: {
+         text: "Interface Use"
+       },
+       data: [{
+         type: "column",
+         dataPoints: dataPoints
+       }]
+     });
+     chart.render();
 
-        ]
-      }]
-    });
-    chart.render();
-
-
-  }
+   }
 
    onGetRes(){
     let url = this.route.snapshot.params.hostname
+
 
 
      this.hostService.getResource(url)
@@ -77,4 +82,14 @@ interface intrf {
   Hostname : string
   inet4 : string
   nb_packet_i : number
+  state : string
 }
+
+interface hostDet{
+  intf : []
+  ip_address : string
+  name : string
+  nb_packet : number
+
+}
+
