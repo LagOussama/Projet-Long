@@ -131,10 +131,18 @@ def get_Nbpackets_Interface(ipAdrr):
   res2 = mongo.db.packetIP.count_documents({"ipSource" : str(ipAdrr) })
   return res+res2
 
-
+@app.route('/', methods=['GET'])
+def get_nbPacket():
+    coll = mongo.db.packetIP
+    output = []
+    res = coll.aggregate([
+    {"$group":{"_id" :"$protocolType", "nb_packet":{"$sum" :1}}}
+    ])
+    for doc in res:
+      output.append(doc)
+    return jsonify({'result' : output})
 
 #if __name__ == "__main__":
 #   app.run(host='0.0.0.0')
-
 
 #print(get_Nbpackets_By_day_last30Day())
