@@ -54,7 +54,7 @@
                     </div>
                     <div class="form-row">
                       <div class="col">
-                        <div class="form-group"><label><strong>Nombre Total de paquet</strong></label><input class="form-control" type="text" placeholder="XXXX" name="first_name" disabled="disabled"></div>
+                        <div class="form-group"><label><strong>Nombre Total de paquet</strong></label><input class="form-control" type="text" placeholder="{{tmp.nb_packet}}" name="first_name" disabled="disabled"></div>
                       </div>
                     </div>
                     <div class="form-row">
@@ -62,17 +62,23 @@
                         <table *ngIf="currentHost"  class="table table-responsive w-100 d-block d-md-table">
                           <thead>
                           <tr>
-                            <th>Nom Interface Reseau</th>
-                            <th> More Information</th>
+                            <th>Interface Name</th>
+                            <th>MAC Address</th>
+                            <th>IP Address</th>
+                            <th>State</th>
 
                           </tr>
                           </thead>
-                          <tbody >
-                          <tr *ngFor="let tmpInterface of tmp.interfaces" >
-                            <td>{{tmpInterface}}</td>
-                           <Button class="btn btn-dark" (click)="onInterfaceInfo(tmp)" > Click Here !</Button>
-                          </tr>
+                          <tbody *ngFor="let tmpInterface of tmp.interfaces">
+                            <tr>
+                              <td>{{tmpInterface.HostInterfaceName}}</td>
+                              <td>{{tmpInterface.HWaddr}}</td>
+                              <td>{{tmpInterface.inet4}}</td>
+                              <td *ngIf="tmpInterface.state === 'UP' " class="text-success"> <a >{{tmpInterface.state}} </a></td>
+                              <td  *ngIf="tmpInterface.state === 'DOWN'" class="text-danger"> <a>{{tmpInterface.state}} </a></td>
+                              <td *ngIf="tmpInterface.state === 'UKNOWN' " class="text-warning"> <a>{{tmpInterface.state}} </a></td>
 
+                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -82,9 +88,13 @@
               </div>
               <div class="card shadow">
                 <div class="card-header py-3">
-                  <p class="text-primary m-0 font-weight-bold">Paquet Use Per Interface</p>
+                  <p class="text-primary m-0 font-weight-bold">Packet Use Per Interface</p>
                 </div>
-                <div class="card-body"><div id="chartContainer" style="height: 370px; width: 100%; margin-left:auto;margin-right:auto;"></div>
+                <div class="card-body">
+
+
+                  <app-host-plot [Message]="currentHost"></app-host-plot>
+
                 </div>
               </div>
             </div>

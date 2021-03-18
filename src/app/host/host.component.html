@@ -38,9 +38,9 @@
             <table *ngIf="hosts" class="table table-responsive w-100 d-block d-md-table">
               <thead>
               <tr>
-                <th>Host ID</th>
                 <th>Host Name</th>
-                <th>Adresse IP</th>
+                <th>Host IP</th>
+                <th>More Information </th>
 
               </tr>
               </thead>
@@ -50,7 +50,7 @@
                 <td>{{tmpHost.name}}</td>
                 <td>{{tmpHost.ip_address}}</td>
 
-               <Button class="btn btn-dark" (click)="onHostInfo(tmpHost.name)"> Click Here !</Button>
+              <td><Button class="btn btn-info" (click)="onHostInfo(tmpHost.name)"> Click Here !</Button></td>
 
               </tr>
 

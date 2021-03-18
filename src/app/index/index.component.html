@@ -55,9 +55,9 @@
               <div class="row align-items-center no-gutters">
                 <div class="col mr-2">
                   <div class="text-uppercase text-success font-weight-bold text-xs mb-1"><span>Host</span></div>
-                  <div class="text-dark font-weight-bold h5 mb-0"><span>{{hostNumb}}</span></div>
+                  <div class="text-dark font-weight-bold h5 mb-0"><span>{{hostNumb.result.length}}</span></div>
                 </div>
-                <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
+                <div class="col-auto"></div>
               </div>
             </div>
           </div>
@@ -67,10 +67,10 @@
             <div class="card-body">
               <div class="row align-items-center no-gutters">
                 <div class="col mr-2">
-                  <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>Agent</span></div>
+                  <div class="text-uppercase text-info font-weight-bold text-xs mb-1"><span>Protocols</span></div>
                   <div class="row no-gutters align-items-center">
                     <div class="col-auto">
-                      <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span>50%</span></div>
+                      <div class="text-dark font-weight-bold h5 mb-0 mr-3"><span>{{protocol.result.length}}</span></div>
                     </div>
                   </div>
                 </div>
@@ -84,8 +84,8 @@
             <div class="card-body">
               <div class="row align-items-center no-gutters">
                 <div class="col mr-2">
-                  <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>Pending Requests</span></div>
-                  <div class="text-dark font-weight-bold h5 mb-0"><span>18</span></div>
+                  <div class="text-uppercase text-warning font-weight-bold text-xs mb-1"><span>All Packets</span></div>
+                  <div class="text-dark font-weight-bold h5 mb-0"><span>{{nbPck.result.nb}}</span></div>
                 </div>
                 <div class="col-auto"><i class="fas fa-comments fa-2x text-gray-300"></i></div>
               </div>
@@ -121,6 +121,14 @@
 
                     </tbody>
                 </table>
+              </div>
+              <div class="card shadow">
+                <div class="card-header py-3">
+                  <p class="text-primary m-0 font-weight-bold">Packet Use Per Protocol</p>
+                </div>
+                <div class="card-body">
+                  <app-protocole-plot [Message2]="protocol"></app-protocole-plot>
+                </div>
               </div>
             </div>
           </div>

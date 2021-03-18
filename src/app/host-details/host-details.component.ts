@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {HostService} from "../service/host.service";
 import * as CanvasJS from '../../assets/canvasjs.min';
+import {HostDetailToPlotService} from "../service/host-detail-to-plot.service";
 
 
 
@@ -12,9 +13,16 @@ import * as CanvasJS from '../../assets/canvasjs.min';
 })
 export class HostDetailsComponent implements OnInit {
 
-   currentHost:any;
+  currentHost:any;
+  currentHostIP:any;
 
-  constructor( private router: Router, private route: ActivatedRoute, private hostService : HostService) {
+  currentinterfaces: Array<intrf>;
+
+  constructor( private router: Router,
+               private route: ActivatedRoute,
+               private hostService : HostService,
+                private data: HostDetailToPlotService
+               ) {
 
   }
 
@@ -26,45 +34,35 @@ export class HostDetailsComponent implements OnInit {
     this.hostService.getResource(url)
       .subscribe(data =>{
         this.currentHost = data;
-        console.log(this.currentHost.result)
         },
           err=>{
         console.log(err)
 
-      })
-    this.onPlot();
+      });
+
+
   }
   onInterfaceInfo(i){
     let url = "/host/"+i;
     this.router.navigateByUrl(url);
   }
 
-  onPlot(){
-    let dataPoints = [];
-    let y = 0;
-    for ( var i = 0; i < 10000; i++ ) {
-      y += Math.round(5 + Math.random() * (-5 - 5));
-      dataPoints.push({ y: y});
-    }
-    let chart = new CanvasJS.Chart("chartContainer", {
-      zoomEnabled: true,
-      animationEnabled: true,
-      exportEnabled: true,
-      title: {
-        text: "Processor Utilization"
-      },
-      subtitles:[{
-        text: "subtitle"
-      }],
-      data: [
-        {
-          type: "line",
-          dataPoints: dataPoints
-        }]
-    });
+  onPlot( interf ){
+    console.log(interf)
 
-    chart.render();
 
   }
 
+  get curr(){
+    return this.currentHost;
+  }
+
+
+}
+interface intrf {
+  HWaddr : string;
+  HostInterfaceName :string
+  Hostname : string
+  inet4 : string
+  nb_packet_i : number
 }
