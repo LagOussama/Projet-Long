@@ -7,3 +7,4 @@ get_nic==0.0.3
 six==1.15.0
 python-dateutil==2.6.1
 Flask-PyMongo==2.3.0
+flask_cors==3.0.10
