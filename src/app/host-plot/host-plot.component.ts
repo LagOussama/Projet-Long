@@ -43,13 +43,14 @@ export class HostPlotComponent implements OnInit {
       }
 
      let chart = new CanvasJS.Chart("chartContainer", {
+       zoomEnabled: true,
        animationEnabled: true,
        exportEnabled: true,
        title: {
          text: "Interface Use"
        },
        data: [{
-         type: "column",
+         type: "line",
          dataPoints: dataPoints
        }]
      });
