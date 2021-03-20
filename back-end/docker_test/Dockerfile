@@ -19,7 +19,8 @@ RUN curl -O https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
     rm get-pip.py
 
 # install pyshark and wireshark
-RUN apt-get install -y  tshark && \
+RUN apt-get update && \
+    apt-get install -y  tshark && \
     apt install -y iproute2 && \
     pip install -r requirement.txt
 

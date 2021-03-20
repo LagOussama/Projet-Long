@@ -82,14 +82,13 @@ class clientcmd:
 
 
 
+if __name__ == "__main__":
+    if len(sys.argv) != 3:
+        print("usage:", sys.argv[0], "<host> <port>")
+        sys.exit(1)
 
-if len(sys.argv) != 3:
-    print("usage:", sys.argv[0], "<host> <port>")
-    sys.exit(1)
-
-host, port = sys.argv[1], int(sys.argv[2])
-action="add"
-value =""
-cltCMD = clientcmd(host,port,action,value)
-
-cltCMD.execute()
+    host, port = sys.argv[1], int(sys.argv[2])
+    action="add"
+    value =""
+    cltCMD = clientcmd(host,port,action,value)
+    cltCMD.execute()
